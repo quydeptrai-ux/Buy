@@ -1,0 +1,5 @@
+if not game:IsLoaded() then repeat game.Loaded:Wait() until game:IsLoaded() end
+
+_G.Save_Setting = true -- Save Setting
+script_key = "NQWfbjGBcDUmIutPShvPNWjjUROgWgaP";
+loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/58328ea2259c450ea64a10414568a7dc.lua"))()
