@@ -1,19 +1,16 @@
 -- webhook is using now: catquy
--- Full Moon
-if game:GetService("Lighting").Sky.MoonTextureId ==
-    "http://www.roblox.com/asset/?id=9709149431" then
+
+if game:GetService("Lighting").Sky.MoonTextureId=="http://www.roblox.com/asset/?id=9709149431" then
     local plr = game.Players.LocalPlayer
     local OSTime = os.time()
     local Time = os.date('!*t', OSTime)
 
     local Content = '**' .. 'Notification Full Moon -made by: CAT┇Quý' .. '**'
-                        
     local Embed = {
         ["title"] = "__Notification FullMoon__",
-        ["description"] = "__Script Join__" .. '```' ..
-            'game:GetService("TeleportService"):TeleportToPlaceInstance(' ..
-            game.PlaceId .. "," .. ' "' .. game.JobId .. '" ' .. "," ..
-            'game:GetService("Players").LocalPlayer)' .. '```',
+        ["description"] = "__Script Join__" .. '```' .. 'game:GetService("TeleportService"):TeleportToPlaceInstance(' ..
+            game.PlaceId .. "," .. ' "' .. game.JobId .. '" ' .. "," .. 'game:GetService("Players").LocalPlayer)' ..
+            '```',
         ["type"] = "rich",
         ["color"] = tonumber(0xffff00),
         ["thumbnail"] = {
@@ -38,84 +35,187 @@ if game:GetService("Lighting").Sky.MoonTextureId ==
                 ["icon_url"] = "https://hoangnorpscripter.github.io/myclassis7c/7C/th.jpg"
             }
         },
-        ["timestamp"] = string.format('%d-%d-%dT%02d:%02d:%02dZ', Time.year,
-                                      Time.month, Time.day, Time.hour, Time.min,
-                                      Time.sec)
+        ["timestamp"] = string.format('%d-%d-%dT%02d:%02d:%02dZ', Time.year, Time.month, Time.day, Time.hour, Time.min,
+            Time.sec)
     };
 
     (syn and syn.request or http_request or http.request) {
         Url = 'https://discord.com/api/webhooks/1243746843955822672/Cjh09c42we6LV8wD7f7cCQzzsrUFvyXj2Udtxez6_bSnYfgefRicOSH-yb1ENYC_n_pv',
         Method = 'POST',
-        Headers = {['Content-Type'] = 'application/json'},
+        Headers = {
+            ['Content-Type'] = 'application/json'
+        },
         Body = game:GetService 'HttpService':JSONEncode({
             content = Content,
             embeds = {Embed}
         })
     };
-    print("Full Moon Found")
+    wait(2)
+    local a = game.JobId
+    repeat
+        task.spawn(pcall, function()
+            Time = 0.1
+            repeat
+                wait()
+            until game:IsLoaded()
+            wait(Time)
+            local a = game.PlaceId
+            local b = {}
+            local c = ""
+            local d = os.date("!*t").hour
+            local e = false
+            function TPReturner()
+                local e
+                if c == "" then
+                    e = game.HttpService:JSONDecode(game:HttpGet(
+                        "https://games.roblox.com/v1/games/" .. a .. "/servers/Public?sortOrder=Asc&limit=100"))
+                else
+                    e = game.HttpService:JSONDecode(game:HttpGet(
+                        "https://games.roblox.com/v1/games/" .. a .. "/servers/Public?sortOrder=Asc&limit=100&cursor=" ..
+                            c))
+                end
+                local f = ""
+                if e.nextPageCursor and e.nextPageCursor ~= "null" and e.nextPageCursor ~= nil then
+                    c = e.nextPageCursor
+                end
+                local c = 0
+                for e, e in pairs(e.data) do
+                    local g = true
+                    f = tostring(e.id)
+                    if tonumber(e.maxPlayers) > tonumber(e.playing) then
+                        for a, a in pairs(b) do
+                            if c ~= 0 then
+                                if f == tostring(a) then
+                                    g = false
+                                end
+                            else
+                                if tonumber(d) ~= tonumber(a) then
+                                    local a = pcall(function()
+                                        delfile("NotSameServers.json")
+                                        b = {}
+                                        table.insert(b, d)
+                                    end)
+                                end
+                            end
+                            c = c + 1
+                        end
+                        if g == true then
+                            table.insert(b, f)
+                            wait()
+                            pcall(function()
+                                writefile("NotSameServers.json", game:GetService("HttpService"):JSONEncode(b))
+                                wait()
+                                game:GetService("TeleportService"):TeleportToPlaceInstance(a, f,
+                                    game.Players.LocalPlayer)
+                            end)
+                            wait(4)
+                        end
+                    end
+                end
+            end
+            function Teleport()
+                while wait() do
+                    pcall(function()
+                        TPReturner()
+                        if c ~= "" then
+                            TPReturner()
+                        end
+                    end)
+                end
+            end
+            Teleport()
+        end)
+        wait()
+    until game.JobId ~= a
 else
-    print("Full Moon not Found")
+    wait(2)
+    local a = game.JobId
+    repeat
+        task.spawn(pcall, function()
+            Time = 0.1
+            repeat
+                wait()
+            until game:IsLoaded()
+            wait(Time)
+            local a = game.PlaceId
+            local b = {}
+            local c = ""
+            local d = os.date("!*t").hour
+            local e = false
+            function TPReturner()
+                local e
+                if c == "" then
+                    e = game.HttpService:JSONDecode(game:HttpGet(
+                        "https://games.roblox.com/v1/games/" .. a .. "/servers/Public?sortOrder=Asc&limit=100"))
+                else
+                    e = game.HttpService:JSONDecode(game:HttpGet(
+                        "https://games.roblox.com/v1/games/" .. a .. "/servers/Public?sortOrder=Asc&limit=100&cursor=" ..
+                            c))
+                end
+                local f = ""
+                if e.nextPageCursor and e.nextPageCursor ~= "null" and e.nextPageCursor ~= nil then
+                    c = e.nextPageCursor
+                end
+                local c = 0
+                for e, e in pairs(e.data) do
+                    local g = true
+                    f = tostring(e.id)
+                    if tonumber(e.maxPlayers) > tonumber(e.playing) then
+                        for a, a in pairs(b) do
+                            if c ~= 0 then
+                                if f == tostring(a) then
+                                    g = false
+                                end
+                            else
+                                if tonumber(d) ~= tonumber(a) then
+                                    local a = pcall(function()
+                                        delfile("NotSameServers.json")
+                                        b = {}
+                                        table.insert(b, d)
+                                    end)
+                                end
+                            end
+                            c = c + 1
+                        end
+                        if g == true then
+                            table.insert(b, f)
+                            wait()
+                            pcall(function()
+                                writefile("NotSameServers.json", game:GetService("HttpService"):JSONEncode(b))
+                                wait()
+                                game:GetService("TeleportService"):TeleportToPlaceInstance(a, f,
+                                    game.Players.LocalPlayer)
+                            end)
+                            wait(4)
+                        end
+                    end
+                end
+            end
+            function Teleport()
+                while wait() do
+                    pcall(function()
+                        TPReturner()
+                        if c ~= "" then
+                            TPReturner()
+                        end
+                    end)
+                end
+            end
+            Teleport()
+        end)
+        wait()
+    until game.JobId ~= a
 end
 
--- Mirage Island
-local map = game:GetService("Workspace"):FindFirstChild("Map")
-
-if map then
-    local mysticIsland = map:FindFirstChild("MysticIsland")
-
-    if mysticIsland then
-        local plr = game.Players.LocalPlayer
-        local OSTime = os.time()
-        local Time = os.date('!*t', OSTime)
-        local Content = '**' .. 'Notification Mirage -made by: CAT┇Quý' .. '**'           
-        local Embed = {
-            ["title"] = "__Notification Mirage__",
-            ["description"] = "__Script Join__" .. '```' ..
-                'game:GetService("TeleportService"):TeleportToPlaceInstance(' ..
-                game.PlaceId .. "," .. ' "' .. game.JobId .. '" ' .. "," ..
-                'game:GetService("Players").LocalPlayer)' .. '```',
-            ["type"] = "rich",
-            ["color"] = tonumber(0xffff00),
-            ["thumbnail"] = {
-                ["url"] = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSn7Pacddv12GvGh1vB-J6ZWxsyct1HZ5a5vbjqQtcTZdyQ4ypzpUp4jUzr0ouXRIHGpTs&usqp=CAU"
-            },
-            ["image"] = {
-                ["url"] = "https://genshingo.com/cdn/shop/articles/genshin-hutao-1.jpg?v=1676341477"
-            },
-            ["fields"] = {
-                {
-                    ["name"] = "__Place ID:__",
-                    ["value"] = game.PlaceId,
-                    ["inline"] = true
-                },
-                {
-                    ["name"] = "__Job Id :__",
-                    ["value"] = '```' .. game.JobId .. '```',
-                    ["inline"] = true
-                },
-                ["footer"] = {
-                    ["text"] = "Owner: !Cat Quy x Khanh",
-                    ["icon_url"] = "https://hoangnorpscripter.github.io/myclassis7c/7C/th.jpg"
-                }
-            },
-            ["timestamp"] = string.format('%d-%d-%dT%02d:%02d:%02dZ', Time.year,
-                                          Time.month, Time.day, Time.hour,
-                                          Time.min, Time.sec)
-        };
-
-        (syn and syn.request or http_request or http.request) {
-            Url = 'https://discord.com/api/webhooks/1243746843955822672/Cjh09c42we6LV8wD7f7cCQzzsrUFvyXj2Udtxez6_bSnYfgefRicOSH-yb1ENYC_n_pv',
-            Method = 'POST',
-            Headers = {['Content-Type'] = 'application/json'},
-            Body = game:GetService 'HttpService':JSONEncode({
-                content = Content,
-                embeds = {Embed}
-            })
-        };
-        print("found")
-    else
-        print("notfound")
+repeat wait() until game.CoreGui:FindFirstChild('RobloxPromptGui')
+ 
+local lp,po,ts = game:GetService('Players').LocalPlayer,game.CoreGui.RobloxPromptGui.promptOverlay,game:GetService('TeleportService')
+ 
+po.ChildAdded:connect(function(a)
+    if a.Name == 'ErrorPrompt' then
+        repeat
+            ts:Teleport(game.PlaceId)
+            wait(2)
+        until false
     end
-else
-    print("Map không tồn tại trong Workspace.")
-end
+end)
