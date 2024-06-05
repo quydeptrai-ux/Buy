@@ -1,20 +1,16 @@
---discord.gg/boronide, code generated using luamin.js™
-
-
-
 ----------------------------------------------------------------------------------------------------------------------------------------------
 local L_1_ = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
 local L_2_ = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/SaveManager.lua"))()
 local L_3_ = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
 ----------------------------------------------------------------------------------------------------------------------------------------------
 local L_4_ = L_1_:CreateWindow({
-	Title = "Slimex Hub",
-	SubTitle = "Version 1029387",
-	TabWidth = 160,
-	Size = UDim2.fromOffset(530, 350),
-	Acrylic = false,
-	Theme = "Aqua",
-	MinimizeKey = Enum.KeyCode.End
+    Title = "ᴄᴀᴛ ʜᴜʙ ┇ ʙʟᴏx ꜰʀᴜɪᴛꜱ",
+    SubTitle = "ꜰʀᴇᴇ ᴠᴇʀꜱɪᴏɴ | ʙʏ: ǫᴜʏ́",
+    TabWidth = 160,
+    Size = UDim2.fromOffset(530, 350),
+    Acrylic = true,
+    Theme = "Darker",
+    MinimizeKey = Enum.KeyCode.LeftControl
 })
 local L_5_ = {
         Info = L_4_:AddTab({
@@ -23,6 +19,10 @@ local L_5_ = {
 	}),
 	Main = L_4_:AddTab({
 		Title = "Main",
+		Icon = ""
+	}),
+		item = L_4_:AddTab({
+		Title = "item",
 		Icon = ""
 	}),
 	Stats = L_4_:AddTab({
@@ -43,6 +43,10 @@ local L_5_ = {
 	}),
         Fruit = L_4_:AddTab({
 		Title = "Fruit",
+		Icon = ""
+	}),
+	    Seaevent = L_4_:AddTab({
+		Title = "Sea Event",
 		Icon = ""
 	}),
 	Shop = L_4_:AddTab({
@@ -3736,8 +3740,8 @@ do
 		end
 	end)
 	if Third_Sea then
-		local L_394_ = L_5_.Main:AddSection("🦊 Kitsune 🦊")
-		local L_395_ = L_5_.Main:AddToggle("ToggleEspKitsune", {
+		local L_394_ = L_5_.Seaevent:AddSection("🦊 Kitsune 🦊")
+		local L_395_ = L_5_.Seaevent:AddToggle("ToggleEspKitsune", {
 			Title = "Esp Kitsune Island",
 			Default = false
 		})
@@ -3783,7 +3787,7 @@ do
 				end)
 			end
 		end
-		local L_396_ = L_5_.Main:AddToggle("ToggleTPKitsune", {
+		local L_396_ = L_5_.Seaevent:AddToggle("ToggleTPKitsune", {
 			Title = "Tween To Kitsune Island",
 			Default = false
 		})
@@ -3810,7 +3814,7 @@ do
 				end
 			end
 		end)
-		local L_397_ = L_5_.Main:AddToggle("ToggleCollectAzure", {
+		local L_397_ = L_5_.Seaevent:AddToggle("ToggleCollectAzure", {
 			Title = "Collect Azure Ambers",
 			Default = false
 		})
@@ -3832,8 +3836,8 @@ do
 		end)
 	end
 	if Third_Sea then
-		local L_409_ = L_5_.Main:AddSection("Rough Sea")
-		local L_410_ = L_5_.Main:AddToggle("ToggleSailBoat", {
+		local L_409_ = L_5_.Seaevent:AddSection("Rough Sea")
+		local L_410_ = L_5_.Seaevent:AddToggle("ToggleSailBoat", {
 			Title = "Auto Buy Ship",
 			Default = false
 		})
@@ -3894,7 +3898,7 @@ do
 				end
 			end)
 		end)
-		local L_411_ = L_5_.Main:AddToggle("ToggleTerrorshark", {
+		local L_411_ = L_5_.Seaevent:AddToggle("ToggleTerrorshark", {
 			Title = " Kill Terrorshark",
 			Default = false
 		})
@@ -3933,7 +3937,7 @@ do
 				end
 			end
 		end)
-		local L_412_ = L_5_.Main:AddToggle("TogglePiranha", {
+		local L_412_ = L_5_.Seaevent:AddToggle("TogglePiranha", {
 			Title = " Kill Piranha",
 			Default = false
 		})
@@ -3972,7 +3976,7 @@ do
 				end
 			end
 		end)
-		local L_413_ = L_5_.Main:AddToggle("ToggleShark", {
+		local L_413_ = L_5_.Seaevent:AddToggle("ToggleShark", {
 			Title = " Kill Shark",
 			Default = false
 		})
@@ -4013,7 +4017,7 @@ do
 				end
 			end
 		end)
-		local L_414_ = L_5_.Main:AddToggle("ToggleFishCrew", {
+		local L_414_ = L_5_.Seaevent:AddToggle("ToggleFishCrew", {
 			Title = " Kill Fish Crew",
 			Default = false
 		})
@@ -4054,7 +4058,7 @@ do
 				end
 			end
 		end)
-		local L_415_ = L_5_.Main:AddToggle("ToggleShip", {
+		local L_415_ = L_5_.Seaevent:AddToggle("ToggleShip", {
 			Title = "Kill Ship",
 			Default = false
 		})
@@ -4096,7 +4100,7 @@ do
 				end
 			end
 		end)
-		local L_416_ = L_5_.Main:AddToggle("ToggleGhostShip", {
+		local L_416_ = L_5_.Seaevent:AddToggle("ToggleGhostShip", {
 			Title = "Kill Ghost Ship",
 			Default = false
 		})
