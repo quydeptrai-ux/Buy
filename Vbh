@@ -1,0 +1,528 @@
+
+local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
+local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/SaveManager.lua"))()
+local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
+local Window = Fluent:CreateWindow({
+    Title = "😻 SameHwid",
+    SubTitle = "         by: CAT┇Quý | Version",
+    TabWidth = 160,
+    Size = UDim2.fromOffset(530, 350),
+    Acrylic = true,
+    Theme = "Darker",
+    MinimizeKey = Enum.KeyCode.End
+})
+local Tabs = {
+    Maruhub = Window:AddTab({ Title = "Maru hub | premium", Icon = "codesandbox" }),
+    Royxhub = Window:AddTab({ Title = "Royx hub | premium", Icon = "codesandbox" }),
+    Wazure = Window:AddTab({ Title = "W-azure hub | premium", Icon = "codesandbox" }),
+    Switch = Window:AddTab({ Title = "Switch hub | premium", Icon = "codesandbox" }),
+    Luxury = Window:AddTab({ Title = "Luxury hub | premium", Icon = "codesandbox" }),
+    Banana = Window:AddTab({ Title = "Banana hub | premium", Icon = "codesandbox" }),
+}
+Tabs.Maruhub:AddButton({
+    Title = "Maru Hub | Thai",
+    Description = "",
+    Callback = function()
+getgenv().Key = "MARU-WBBSW-ZWBL0-6F8N-I80D5-RYFH"
+getgenv().id = "1003662302412820622"
+_G.Script_Language = "Thai"
+loadstring(game:HttpGet("https://raw.githubusercontent.com/xshiba/MaruBitkub/main/Mobile.lua"))()
+    end
+})
+Tabs.Maruhub:AddButton({
+    Title = "Maru Hub | All Map ",
+    Description = "",
+    Callback = function()
+getgenv().Key = "MARU-WBBSW-ZWBL0-6F8N-I80D5-RYFH"
+getgenv().id = "1003662302412820622"
+loadstring(game:HttpGet("https://raw.githubusercontent.com/xshiba/MaruBitkub/main/Mobile.lua"))()
+    end
+})
+Tabs.Maruhub:AddButton({
+    Title = "Maru Hub | Kaitun ",
+    Description = "",
+    Callback = function()
+ repeat task.wait() until game:IsLoaded()
+repeat task.wait() until game.Players
+repeat task.wait() until game.Players.LocalPlayer
+repeat task.wait() until game.Players.LocalPlayer:FindFirstChild("PlayerGui")
+repeat task.wait() until game.Players.LocalPlayer.PlayerGui:FindFirstChild("Main");
+_G.Team = "Pirate" -- Marine / Pirate
+getgenv().Script_Mode = "Kaitun_Script"
+_G.LogsDes = {
+    ["Enabled"] = true, -- เปิดการใช้งาน
+    ["SendAlias"] = true, -- เปิดการส่ง Alias
+    ["SendDescription"] = true, -- เปิดการส่ง Des
+    ["DelaySend"] = 5 -- วินาที
+}
+_G.WebHook = {
+    ["Enabled"] = true, -- เปิดการใช้งาน
+    ["Url"] = "", -- ลิ้งค์เว็บฮุก
+    ["Delay"] = 60 -- วินาที
+}
+_G.MainSettings = {
+        ["EnabledHOP"] = true, -- เปิด HOP ( มันไม่มีอยู่ละใส่มาเท่ๆ )
+        ['FPSBOOST'] = true, -- ภาพกาก
+        ["FPSLOCKAMOUNT"] = 60, -- จำนวน FPS
+        ['WhiteScreen'] = true, -- จอขาว
+        ['CloseUI'] = false, -- ปิด Ui
+        ["NotifycationExPRemove"] = true, -- ลบ ExP ที่เด้งตอนฆ่ามอน
+        ['AFKCheck'] = 150, -- ถ้ายืนนิ่งเกินวิที่ตั้งมันจะรีเกม
+        ["LockFragments"] = 20000, -- ล็อคเงินม่วง
+        ["LockFruitsRaid"] = { -- ล็อคผลที่ไม่เอาไปลงดัน
+            [1] = "Dough-Dough",
+            [2] = "Dragon-Dragon"
+        }
+    }
+_G.Fruits_Settings = { -- ตั้งค่าผล
+    ['Main_Fruits'] = {'Dough-Dough'}, -- ผลหลัก ถ้ายังไม่ใช่ค่าที่ตั้งมันจะกินจนกว่าจะใช่หรือซื้อ
+    ['Select_Fruits'] = {"Flame-Flame", "Ice-Ice", "Quake-Quake", "Light-Light", "Dark-Dark", "Spider-Spider", "Rumble-Rumble", "Magma-Magma", "Buddha-Buddha"} -- กินหรือซื้อตอนไม่มีผล
+}
+_G.Quests_Settings = { -- ตั้งค่าเควสหลักๆ
+    ['Rainbow_Haki'] = true,
+    ["MusketeerHat"] = true,
+    ["PullLever"] = true,
+    ['DoughQuests_Mirror'] = {
+        ['Enabled'] = true,
+        ['UseFruits'] = true
+    }        
+}
+_G.Races_Settings = { -- ตั้งค่าเผ่า
+    ['Race'] = {
+        ['EnabledEvo'] = true,
+        ["v2"] = true,
+        ["v3"] = true,
+        ["Races_Lock"] = {
+            ["Races"] = { -- Select Races U want
+                ["Mink"] = true,
+                ["Human"] = true,
+                ["Fishman"] = true
+            },
+            ["RerollsWhenFragments"] = 20000 -- Random Races When Your Fragments is >= Settings
+        }
+    }
+}
+_G.Settings_Melee = { -- หมัดที่จะทำ
+    ['Superhuman'] = true,
+    ['DeathStep'] = true,
+    ['SharkmanKarate'] = true,
+    ['ElectricClaw'] = true,
+    ['DragonTalon'] = true,
+    ['Godhuman'] = true
+}
+_G.FarmMastery_Settings = {
+    ['Melee'] = true,
+    ['Sword'] = true,
+    ['DevilFruits'] = true,
+    ['Select_Swords'] = {
+        ["AutoSettings"] = true, -- ถ้าเปิดอันนี้มันจะเลือกดาบให้เองหรือฟาร์มทุกดาบนั่นเอง
+        ["ManualSettings"] = { -- ถ้าปรับ AutoSettings เป็น false มันจะฟาร์มดาบที่เลือกตรงนี้ ตัวอย่างข้างล่าง
+            "Saber",
+            "Buddy Sword"
+        }
+    }
+}
+_G.SwordSettings = { -- ดาบที่จะทำ
+    ['Saber'] = true,
+    ["Pole"] = true,
+    ['MidnightBlade'] = true,
+    ['Shisui'] = true,
+    ['Saddi'] = true,
+    ['Wando'] = true,
+    ['Yama'] = true,
+    ['Rengoku'] = true,
+    ['Canvander'] = true,
+    ['BuddySword'] = true,
+    ['TwinHooks'] = true,
+    ['HallowScryte'] = true,
+    ['TrueTripleKatana'] = true,
+    ['CursedDualKatana'] = true
+}
+_G.SharkAnchor_Settings = {
+    ["Enabled_Farm"] = false,
+}
+_G.GunSettings = { -- ปืนที่จะทำ
+    ['Kabucha'] = true,
+    ['SerpentBow'] = true,
+    ['SoulGuitar'] = true
+}
+getgenv().Key = "MARU-WBBSW-ZWBL0-6F8N-I80D5-RYFH"
+getgenv().id = "1003662302412820622"
+getgenv().Script_Mode = "Kaitun_Script"
+loadstring(game:HttpGet("https://raw.githubusercontent.com/xshiba/MaruBitkub/main/Mobile.lua"))()
+    end
+})
+Tabs.Maruhub:AddButton({
+    Title = "Maru Hub | PVP ",
+    Description = "",
+    Callback = function()
+getgenv().Key = "MARU-WBBSW-ZWBL0-6F8N-I80D5-RYFH"
+getgenv().id = "1003662302412820622"
+_G.Script_Mode = "PVP"
+loadstring(game:HttpGet("https://raw.githubusercontent.com/xshiba/MaruBitkub/main/Mobile.lua"))()
+    end
+})
+Tabs.Royxhub:AddButton({
+    Title = "RoyX Hub | Main ",
+    Description = "",
+    Callback = function()
+_G.Key = "XT1W2-FBBNX-2A9O8"
+_G.DiscordId = "1003662302412820622"
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Natsuhanaki/Royx_PC/main/loader.lua"))();
+    end
+})
+Tabs.Royxhub:AddButton({
+    Title = "RoyX Hub | Kaitun ",
+    Description = "",
+    Callback = function()
+_G.KaitunConfig = {
+    ["Start Farm"] = true,
+    -- all melee is already do with it self
+    -- auto activate list ( Auto Do List )
+    --[[ //auto activate list//
+        GodHuman, all melee
+        get god human material
+        random fruit , store fruit
+        smart code redeem
+
+        / sea 1
+        auto go sea 2
+        skip farm level
+        saber
+        kill Greybeard (bisento v2)
+
+        / sea 2
+        auto go sea 3
+        kill darkbeard
+        race v2
+        bartilo
+
+        / sea 3
+        kill boss
+
+        dough awaking
+        CDK
+        elite hunter
+    ]]
+    ["Auto Fruit"] = true, -- tween to fruit
+
+    ["RedeemCode Level"] = 2,
+
+    ["white screen"] = false, -- will go white on not focus
+
+    ["Ui Screen"] = false,
+
+    ["LimitFragment"] = 100000,
+
+    -- item
+
+    ["Buy Base Sword"] = true,
+    ["Boss List"] = { -- put boss for farm item ---pls dont put boss that have requirement (like Saber boss dofrmigo) because it already kill if can
+        "The Saw [Lv. 100] [Boss]",
+        "Greybeard [Lv. 750] [Raid Boss]",
+    
+        "Darkbeard [Lv. 1000] [Raid Boss]",
+        "Cursed Captain [Lv. 1325] [Raid Boss]",
+
+        "Captain Elephant [Lv. 1875] [Boss]",
+        "Soul Reaper [Lv. 2100] [Raid Boss]",
+        "Dough King [Lv. 2300] [Raid Boss]",
+        "Cake Prince [Lv. 2300] [Raid Boss]",
+        "rip_indra True Form [Lv. 5000] [Raid Boss]",
+        "Beautiful Pirate [Lv. 1950] [Boss]",
+        "Cake Queen [Lv. 2175] [Boss]"
+    },
+
+    -- sea 1
+    ["PlayerHunter"] = true, -- will do skip lvl too
+    ["Player Hunter Hop"] = true,
+
+    -- sea 2
+    ["Auto Factory"] = true,
+    ["Rengoku"] = true,
+    ["Sea 3 Hop"] = true, -- hop to find fruit
+    ["Race v3"] = true,
+    ["Skip Race v3"] = true, -- will go sea 3 not care u will get race or not
+    ["Instance Soul Guitar"] = false,-- will not go sea 3 if not got dark frag
+    
+    -- sea 3
+    ["CDK"] = true,
+    ["Tushita"] = true,
+    ["Yama"] = true,
+    ["Soul Guitar"] = true,
+    ["Pull Lever"] = true,
+
+    -- Add On
+    ["Farm When Lvl Max"] = "Katakuri", -- Bone , Katakuri , Coco
+    ["Ghoul Race"] = false, -- it beta
+    ["Race Lock"] = {"Human","Mink","Fishman"}, -- Human , Mink , Fishman , Skypiea -- but Skypiea not recommend is hard to kill other pp
+    ["FPS Cap"] = 15,
+
+    ["Buy Haki Color"] = true, -- will buy only Snow White,Pure Red,Winter Sky
+    ["Auto Legendary Sword"] = true,
+    ["Auto TTK"] = true,
+
+    -- Sword
+    ["Mastery Sword"] = true, -- will farm mastery
+    ["Select Rarity"] = {"Mythical","Legendary"}, -- Common , Uncommon,Rare,Legendary,Mythical
+
+    -- Fruit
+    ["Select Main Devil Fruit Sniper"] = {"Dragon-Dragon","Spirit-Spirit","Magma-Magma","Venom-Venom","Dough-Dough"}, -- if have will eat
+    ["Select Sub Devil Fruit Sniper"] = {"Ice-Ice","Sand-Sand","Dark-Dark","Magma-Magma","Quake-Quake","Light-Light"}, -- will eat if not have main fruit
+    ["Allow Eat Fruit In Inventory"] = true,
+    ["Start Sniper"] = true,
+    
+    -- Fruit2
+    ["Safe Fruit"] = {"Dragon-Dragon","Spirit-Spirit","Venom-Venom","Dough-Dough"}, -- will not use this fruit to raids or anyting
+
+    -- Webhook
+    ["Link Webhook"] = "",
+    ["Start Webhook"] = false,
+    ["Webhook Mode"] = "Send Every .. min", -- "Send Every .. min","Send On Level Max","Send On Level Max And Every .. min"
+    ["Webhook Minute"] = 10, -- mean 10 Minute
+    ["tag user"] = false,
+    ["Send Test Webhook"] = false,
+}
+_G.Key = "XT1W2-FBBNX-2A9O8"
+_G.DiscordId = "1003662302412820622"
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Natsuhanaki/Royx_PC/main/loader.lua"))();
+    end
+})
+Tabs.Royxhub:AddButton({
+    Title = "RoyX Hub | V4  ",
+    Description = "Fix😪",
+    Callback = function()
+game.Players.LocalPlayer:Kick("RoyX Hub | V4 Fix 🫠😪")
+    end
+})
+
+Tabs.Wazure:AddButton({
+    Title = "W-azure Hub | True V2  ",
+    Description = "Fix😪",
+    Callback = function()
+game.Players.LocalPlayer:Kick("RoyX Hub | true v2 Fix 🫠😪")
+    end
+})
+Tabs.Wazure:AddButton({
+    Title = "W-azure Hub | Show Item  ",
+    Description = "Fix😪",
+    Callback = function()
+game.Players.LocalPlayer:Kick("W-azure Hub | Item Fix 🫠😪")
+    end
+})
+Tabs.Wazure:AddButton({
+    Title = "W-azure Hub | PVP  ",
+    Description = "Fix😪",
+    Callback = function()
+game.Players.LocalPlayer:Kick("W-azure Hub | PVP 🫠😪")
+    end
+})
+Tabs.Wazure:AddButton({
+    Title = "W-azure Hub  | Main  ",
+    Description = "Fix😪| Anime Defenders ",
+    Callback = function()
+game.Players.LocalPlayer:Kick("W-azure Hub | Anime Defenders | kaitun  Fix 🫠😪")
+    end
+})
+Tabs.Wazure:AddButton({
+    Title = "W-azure Hub  | Kaitun  ",
+    Description = "Fix😪| Anime Defenders ",
+    Callback = function()
+game.Players.LocalPlayer:Kick("W-azure Hub | Anime Defenders | kaitun  Fix 🫠😪")
+    end
+})
+Tabs.Switch:AddButton({
+    Title = "Switch Hub | Pro | Main  ",
+    Description = "Fix😪 ",
+    Callback = function()
+game.Players.LocalPlayer:Kick("Switch Hub Pro | Fix 🫠😪")
+    end
+})
+Tabs.Switch:AddButton({
+    Title = "Switch Hub | Kaitun  ",
+    Description = "Fix😪 ",
+    Callback = function()
+game.Players.LocalPlayer:Kick(" Switch Hub |   kaitun Fix 🫠😪")
+    end
+})
+Tabs.Switch:AddButton({
+    Title = "Switch Hub | Capcup V1   ",
+    Description = "Fix😪 ",
+    Callback = function()
+game.Players.LocalPlayer:Kick("Switch Hub Capcup v1 |   Fix 🫠😪")
+    end
+})
+Tabs.Switch:AddButton({
+    Title = "Switch Hub | Capcup V2   ",
+    Description = "Fix😪 ",
+    Callback = function()
+game.Players.LocalPlayer:Kick("Switch Hub Capcup V2 |   Fix 🫠😪")
+    end
+})
+Tabs.Switch:AddButton({
+    Title = "Switch Hub |  V4   ",
+    Description = "Fix😪 ",
+    Callback = function()
+game.Players.LocalPlayer:Kick("Switch Hub V4 |   Fix 🫠😪")
+    end
+})
+Tabs.Switch:AddButton({
+    Title = "Switch Hub |  7M   ",
+    Description = "Fix😪 ",
+    Callback = function()
+game.Players.LocalPlayer:Kick("Switch Hub 7M |   Fix 🫠😪")
+    end
+})
+Tabs.Luxury:AddButton({
+    Title = "Luxury Hub  | Main  ",
+    Description = " ",
+    Callback = function()
+-- If you have more than 1 key, select only 1.
+_G.Key = "main_d4i0QoDXOZzaF1lnmCOH"
+
+_G.DiscordId = "1003662302412820622"
+loadstring(game:HttpGet("https://raw.githubusercontent.com/markxd07/Lux-Sexy/main/Body.lua"))();
+    end
+})
+Tabs.Luxury:AddButton({
+    Title = "Luxury Hub  | kaitun  ",
+    Description = " ",
+    Callback = function()
+-- Enabled Kaitun
+_G.KaitanMode = true
+getgenv().Configs = {
+	Main = {
+		SkipFarm = true,
+		HopIfCantKill = true,
+		BlockAllHop = false,
+		
+		FastAttack = true,
+		
+		Start = true,
+	},
+
+	FirstSea = {
+	        -- World 1
+		AutoPole = true, -- จะตีเเค่ถ้ามันเกิดไม่ได้ตีจนกว่าจะได้
+		AutoSaber = true,
+		AutoSecondSea = true,
+	},
+
+	SecondSea = {
+		-- World 2
+		AutoRengoku = true,
+
+		AutoSecondSea = true,
+		AutoQuestFlower = true,
+		AutoRaceV3 = true,
+		AutoBartiloQuest = true,
+		AutoCursedCaptain = true,
+		AutoDarkbeard = true,
+		AutoFactory = true,
+		AutoThirdSea = true,
+		
+		AlliesFruit = {"Dragon-Dragon","Spirit-Spirit","Venom-Venom","Dough-Dough"}, -- จะไม่ใช้ผลพวกนี้ในการเปิดประตูไปโลก3
+	},
+
+	ThirdSea = {
+		-- World 3
+		AutoHallowScythe = true,
+		AutoBuddySword = true,
+		AutoDoughKing = true,
+		AutoSpikeyTrident = true,
+		AutoTushita = true,
+		AutoEliteHunter = true,
+		AutoDarkDagger = true,
+		AutoYama = true,
+		AutoCanvander = true,
+		SkipGetItemGuitar = true, -- จะไม่ หาของทำ soul guiter ในโลก 2 เบบ หาจนกว่าจะได้ will not find item until get all item for do soul guiter ( open recommend เเนะนำให้เปิด )
+		AutoSoulGuitar = true, 
+		AutoRainbowHaki = true,
+		AutoCursedDualKatana = true,
+	},
+
+	FightingStyle = {
+		-- Fighting Style 
+		AutoGodHuman = true,
+		AutoSuperhuman = true,
+		AutoDeathStep = true,
+		AutoSharkmanKarate = true,
+		AutoElectricClaw = true,
+		AutoDargonTalon = true,
+	},
+
+	Mastery = {
+		-- Auto Farm Mastery
+		AutoDFMastery = true,
+		SettingsSkill = { -- ถ้าไม่ใส่จะใช้ mode auto
+			-- ["Z"] = 0.1,
+			-- ["X"] = 0.1,
+			-- ["C"] = 0.1,
+			-- ["V"] = 0.1, -- อันไหนไม่เอาลบออกไปเลย
+		},
+		AutoSwordMastery = true,
+		SelectRaritySword = {"Mythical","Legendary"}, -- Common , Uncommon,Rare,Legendary,Mythical
+	
+	},
+
+	Settings = {
+		-- code
+		
+		SelectRedeemCodeLevel = 1,
+
+		-- Raids
+
+		SelectRateFruitRaid = 1000000, -- if fruit price less u rate then we use it to auto raids
+		LimitFragmentsRaids = 100000,
+	},
+
+	FruitsSettings = {
+		-- Devil Fruit
+	
+		SelectMainDF = {"Dragon-Dragon","Spirit-Spirit","Venom-Venom","Dough-Dough"}, -- ผลหลักที่จะกินเเทนผลรอง
+		SelectSubDF = {"Ice-Ice","Sand-Sand","Dark-Dark","Quake-Quake","Light-Light"}, -- ผลรองจะกินไว้ก่อนเเล้วพอผลหลักมีก้จะเปลียนไปกินผิดหลัก
+		AllowEatDFInventory = true,
+		StartSniper = true,
+	},
+
+	Webhook = {
+		-- Webhook
+
+		StartWebhook = false,
+		WebhookURL = "",
+		WebhookMode = "Send On Level Max And Every 10 min", -- "Send Every 10 min","Send On Level Max And Every 10 min"
+	},
+
+	Fps = {
+		-- CPU
+
+		FpsBoost = true,
+		LockFPS = 120,
+		LockFPSNow = true,
+		WhiteScreen = false
+	}
+}
+-- If you have more than 1 key, select only 1.
+_G.Key = "main_d4i0QoDXOZzaF1lnmCOH"
+
+_G.DiscordId = "1003662302412820622"
+loadstring(game:HttpGet("https://raw.githubusercontent.com/markxd07/Lux-Sexy/main/Body.lua"))();
+    end
+})
+Tabs.Banana:AddButton({
+    Title = "Banana Hub  | Main ",
+    Description = "Fix😪 ",
+    Callback = function()
+game.Players.LocalPlayer:Kick("Banana Hub  main |   Fix 🫠😪")
+    end
+})
+Tabs.Banana:AddButton({
+    Title = "banana Hub  | kaitun  ",
+    Description = "Fix😪 ",
+    Callback = function()
+game.Players.LocalPlayer:Kick("Luxury Hub  |   Fix 🫠😪")
+    end
+})
+while wait(0.1) do
+    print("Nhìn Vào Đây Ăn 💩 à")
+end
