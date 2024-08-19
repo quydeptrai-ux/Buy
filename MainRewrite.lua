@@ -2538,14 +2538,14 @@ local Window = OrionLib:MakeWindow({Name = "cat hub", HidePremium = false, Intro
 
 local W = Window:MakeTab({
     Name = " About Tab",
-    Icon = "rbxassetid://17510500831",
+    Icon = "rbxassetid://",
     PremiumOnly = false
 })
 
 
 local SH = Window:MakeTab({
     Name = " Shop Tab",
-    Icon = "rbxassetid://17510500831",
+    Icon = "rbxassetid://",
     PremiumOnly = false
 })
 
@@ -2553,7 +2553,7 @@ local SH = Window:MakeTab({
 
 local M = Window:MakeTab({
     Name = " Farming Tab",
-    Icon = "rbxassetid://17510500831",
+    Icon = "rbxassetid://",
     PremiumOnly = false
 })
 
@@ -2582,14 +2582,14 @@ M:AddButton({
 
 local IQ = Window:MakeTab({
     Name = " Sub Farming Tab",
-    Icon = "rbxassetid://17510500831",
+    Icon = "rbxassetid://",
     PremiumOnly = false
 })
 
 
 local SeaEvent = Window:MakeTab({
 	Name = " Sea Event Tab",
-	Icon = "rbxassetid://17510500831",
+	Icon = "rbxassetid://",
 	PremiumOnly = false
 })
 
@@ -2926,7 +2926,7 @@ wait(0.5)
 elseif state and (not findItem("Monster Magnet", 1) or not findItem("Terror Eyes", 2) and not findItem("Electric Wing", 8) and not findItem("Fool's Gold", 20) and not findItem("Shark Tooth", 10)) then
     _G.BjirAnchorCuy = false
     game.StarterGui:SetCore("SendNotification", {
-        Icon = "rbxassetid://17510500831",
+        Icon = "rbxassetid://",
         Title = "! WARNING !", 
         Text = "You need more materials \nto buy a Monster Magnet."
     })
@@ -3252,63 +3252,63 @@ end)
 
 local S = Window:MakeTab({
     Name = " Stats Tab",
-    Icon = "rbxassetid://17510500831",
+    Icon = "rbxassetid://",
     PremiumOnly = false
 })
 
 local E = Window:MakeTab({
     Name = " ESP Tab",
-    Icon = "rbxassetid://17510500831",
+    Icon = "rbxassetid://",
     PremiumOnly = false
 })
 
 local RA = Window:MakeTab({
     Name = " Raid Tab",
-    Icon = "rbxassetid://17510500831",
+    Icon = "rbxassetid://",
     PremiumOnly = false
 })
 
 local LC = Window:MakeTab({
     Name = " Local Player Tab",
-    Icon = "rbxassetid://17510500831",
+    Icon = "rbxassetid://",
     PremiumOnly = false
 })
 
 local Wld = Window:MakeTab({
     Name = " Sea TP Tab",
-    Icon = "rbxassetid://17510500831",
+    Icon = "rbxassetid://",
     PremiumOnly = false
 })
 
 local SV = Window:MakeTab({
     Name = " Status and Server",
-    Icon = "rbxassetid://17510500831",
+    Icon = "rbxassetid://",
     PremiumOnly = false
 })
 
 local D = Window:MakeTab({
     Name = " Fruit Tab",
-    Icon = "rbxassetid://17510500831",
+    Icon = "rbxassetid://",
     PremiumOnly = false
 })
 
 local R = Window:MakeTab({
     Name = " Upgrade Race",
-    Icon = "rbxassetid://17510500831",
+    Icon = "rbxassetid://",
     PremiumOnly = false
 })
 
 
 local C = Window:MakeTab({
     Name = " Misc Tab",
-    Icon = "rbxassetid://17510500831",
+    Icon = "rbxassetid://",
     PremiumOnly = false
 })
 
 
 local ST = Window:MakeTab({
     Name = " Settings Tab",
-    Icon = "rbxassetid://17510500831",
+    Icon = "rbxassetid://",
     PremiumOnly = false
 })
 
@@ -9030,13 +9030,13 @@ pcall(function()
                 OrionLib:MakeNotification({
                     Name = "cathub•Hub(Noitification)",
                     Content = "[EN] : Please cancel the farrm level quest (if any)",
-                    Image = "rbxassetid://17510500831",
+                    Image = "rbxassetid://",
                     Time = 9
                 })
                 OrionLib:MakeNotification({
                     Name = "cathub•Hub(Noitification)",
                     Content = "Please Cancel Quest ( If Have )",
-                    Image = "rbxassetid://17510500831",
+                    Image = "rbxassetid://",
                     Time = 9
                 })
             end
@@ -9205,7 +9205,7 @@ spawn(function()
                     OrionLib:MakeNotification({
                         Name = "cathub•Hub",
                         Content = "You Are Max Point",
-                        Image = "rbxassetid://17510500831",
+                        Image = "rbxassetid://",
                         Time = 5
                     })
                     
@@ -9354,7 +9354,7 @@ spawn(function()
             OrionLib:MakeNotification({
                 Name = "cathub•Hub",
                 Content = "You not have beli or fragment!",
-                Image = "rbxassetid://17510500831",
+                Image = "rbxassetid://",
                 Time = 5
             })
             end
@@ -9515,7 +9515,7 @@ spawn(function()
                         OrionLib:MakeNotification({
                             Name = "cathub•Hub",
                             Content = "Not Have Superhuman",
-                            Image = "rbxassetid://17510500831",
+                            Image = "rbxassetid://",
                             Time = 5
                         })
                         
@@ -9528,7 +9528,7 @@ spawn(function()
                         OrionLib:MakeNotification({
                             Name = "cathub•Hub",
                             Content = "Not Have Death Step",
-                            Image = "rbxassetid://17510500831",
+                            Image = "rbxassetid://",
                             Time = 5
                         })
                         
@@ -9541,7 +9541,7 @@ spawn(function()
                         OrionLib:MakeNotification({
                             Name = "cathub•Hub",
                             Content = "Not Have SharkMan Karate",
-                            Image = "rbxassetid://17510500831",
+                            Image = "rbxassetid://",
                             Time = 5
                         })
                         
@@ -9554,7 +9554,7 @@ spawn(function()
                         gOrionLib:MakeNotification({
                             Name = "cathub•Hub",
                             Content = "Not Have Electric Claw",
-                            Image = "rbxassetid://17510500831",
+                            Image = "rbxassetid://",
                             Time = 5
                         })
                         
@@ -9565,7 +9565,7 @@ spawn(function()
                                 OrionLib:MakeNotification({
                                     Name = "cathub•Hub",
                                     Content = "Not Have Enough Material",
-                                    Image = "rbxassetid://17510500831",
+                                    Image = "rbxassetid://",
                                     Time = 5
                                 })
                                 
@@ -9577,7 +9577,7 @@ spawn(function()
                         OrionLib:MakeNotification({
                             Name = "cathub•Hub",
                             Content = "You Not Have Dragon Talon! ",
-                            Image = "rbxassetid://17510500831",
+                            Image = "rbxassetid://",
                             Time = 5
                         })
                         
@@ -11976,7 +11976,7 @@ spawn(function()
                 OrionLib:MakeNotification({
                     Name = "cathub•Hub",
                     Content = "Turn Off Hop Find Moon Please ",
-                    Image = "rbxassetid://17510500831",
+                    Image = "rbxassetid://",
                     Time = 5
                 })
             elseif game:GetService("Lighting").Sky.MoonTextureId=="http://www.roblox.com/asset/?id=9709143733" then
@@ -11984,7 +11984,7 @@ spawn(function()
                 OrionLib:MakeNotification({
                     Name = "Cat•Hub",
                     Content = "Hop Server",
-                    Image = "rbxassetid://17510500831",
+                    Image = "rbxassetid://",
                     Time = 5
                 })
             elseif game:GetService("Lighting").Sky.MoonTextureId=="http://www.roblox.com/asset/?id=9709150401" then
@@ -11992,7 +11992,7 @@ spawn(function()
                 OrionLib:MakeNotification({
                     Name = "Cat Hub",
                     Content = "Hop Server",
-                    Image = "rbxassetid://17510500831",
+                    Image = "rbxassetid://",
                     Time = 5
                 })
             elseif game:GetService("Lighting").Sky.MoonTextureId=="http://www.roblox.com/asset/?id=9709149680" then
@@ -12000,7 +12000,7 @@ spawn(function()
                 OrionLib:MakeNotification({
                     Name = "Cat Hub",
                     Content = "Hop Server",
-                    Image = "rbxassetid://17510500831",
+                    Image = "rbxassetid://",
                     Time = 5
                 })
             else
@@ -12013,7 +12013,7 @@ spawn(function()
 OrionLib:MakeNotification({
         Name = "Cat Hub",
         Content = "Loading script Successfully!",
-        Image = "rbxassetid://17510500831",
+        Image = "rbxassetid://",
         Time = 5
     })
 
@@ -12046,6 +12046,6 @@ OrionLib:Init()
 OrionLib:MakeNotification({
     Name = "CatHub",
     Content = "Loading Config Success",
-    Image = "rbxassetid://17510500831",
+    Image = "rbxassetid://",
     Time = 5
 })
