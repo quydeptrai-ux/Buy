@@ -651,7 +651,7 @@ if _G.cathub_Hub_Series_R then
 		Uitoggle.Position = UDim2.new(0.14, 0, 0.1, 0)
 		Uitoggle.Size = UDim2.new(0, 137, 0, 25)
 		Uitoggle.Font = Enum.Font.GothamSemibold
-		Uitoggle.Text = "cathub Kaitun"
+		Uitoggle.Text = "cathub Hub Kaitun"
 		Uitoggle.TextColor3 = Color3.fromRGB(255, 255, 255)
 		Uitoggle.TextSize = 12.000
 		
@@ -662,7 +662,7 @@ if _G.cathub_Hub_Series_R then
 		Yedhee.Position = UDim2.new(0.14, 0, 0.429166657, 0)
 		Yedhee.Size = UDim2.new(0, 137, 0, 25)
 		Yedhee.Font = Enum.Font.GothamSemibold
-		Yedhee.Text = Click: [Close/Open Ui]"
+		Yedhee.Text = "White Screen (B)"
 		Yedhee.TextColor3 = Color3.fromRGB(0, 255, 186) 
 		Yedhee.TextSize = 12.000
 		
@@ -749,7 +749,7 @@ if _G.cathub_Hub_Series_R then
 		local Notify = AkaliNotif.Notify
 		Notify({
 			Description = '✅ Turn on and off (White Screen "Y")',
-			Title = "cathub Kaitun | "..tostring(game.Players.LocalPlayer.Name),
+			Title = "cathub Hub Kaitun | "..tostring(game.Players.LocalPlayer.Name),
 			Duration = 5
 		})
 		Notify({
@@ -810,7 +810,7 @@ if _G.cathub_Hub_Series_R then
 	end
 	
 	local PepsisWorld = library:CreateWindow({
-		Name = "cathub [ Kaitun ]",
+		Name = "cathub Hub [ Kaitun ]",
 		Themeable = {	
 		}
 	})
