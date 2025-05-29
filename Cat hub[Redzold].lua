@@ -341,7 +341,7 @@ function WazureV1:Start(GuiConfig)
 	Main.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	Main.BorderSizePixel = 0
 	Main.Position = UDim2.new(0, 447, 0, 203)
-	Main.Size = UDim2.new(0, 550, 0, 400)
+	Main.Size = UDim2.new(0, 300, 0, 200)
 	Main.Name = "Main"
 	Main.Parent = AzuGui
 
@@ -1799,358 +1799,329 @@ function WazureV1:Start(GuiConfig)
 			CountItem = CountItem + 1
 			return ToggleFunc
 		end 
-function Items:MakeSlider(SliderName, SliderConfig)
-    local SliderConfig = SliderConfig or {}
-    SliderConfig.Title = SliderConfig.Title or "Title"
-    SliderConfig.Content = SliderConfig.Content or ""
-    SliderConfig.Increment = SliderConfig.Increment or 1
-    SliderConfig.Min = SliderConfig.Min or 0
-    SliderConfig.Max = SliderConfig.Max or 100
-    SliderConfig.Default = SliderConfig.Default or 0
-    SliderConfig.Callback = SliderConfig.Callback or function() end
-    SliderConfig.Unit = SliderConfig.Unit or ""
-    SliderConfig.Decimals = SliderConfig.Decimals or 0 
+	function Items:MakeSlider(SliderName, SliderConfig)
+			local SliderConfig = SliderConfig or {}
+			SliderConfig.Title = SliderConfig.Title or "Title"
+			SliderConfig.Content = SliderConfig.Content or ""
+			SliderConfig.Increment = SliderConfig.Increment or 1
+			SliderConfig.Min = SliderConfig.Min or 0
+			SliderConfig.Max = SliderConfig.Max or 100
+			SliderConfig.Default = SliderConfig.Default or 0
+			SliderConfig.Callback = SliderConfig.Callback or function() end
+			local SliderFunc = {Type = "Slider", Value = SliderConfig.Default}
+			local SliderName = SliderName or SliderConfig.Title
 
-    local SliderFunc = {Type = "Slider", Value = SliderConfig.Default}
-    local SliderName = SliderName or SliderConfig.Title
-    local Dragging = false
+			local Slider = Instance.new("Frame");
+			local UICorner20 = Instance.new("UICorner");
+			local SliderTitle = Instance.new("TextLabel")
+			local SliderDescription = Instance.new("TextLabel");
+			local UIStroke11 = Instance.new("UIStroke");
+			local BackButton = Instance.new("TextButton");
+			local BackImage = Instance.new("ImageLabel");
+			local ForwardButton = Instance.new("TextButton");
+			local ForwardImage = Instance.new("ImageLabel");
+			local RefreshButton = Instance.new("TextButton");
+			local RefreshImage = Instance.new("ImageLabel");
+			local SliderInput = Instance.new("Frame");
+			local UICorner22 = Instance.new("UICorner");
+			local UIStroke12 = Instance.new("UIStroke");
+			local SliderBox = Instance.new("TextBox");
+			local SliderNumber = Instance.new("TextLabel");
+			local SliderFrame = Instance.new("Frame");
+			local UICorner23 = Instance.new("UICorner");
+			local SliderDrag = Instance.new("Frame");
+			local UICorner24 = Instance.new("UICorner");
+			local SliderCircle = Instance.new("Frame");
+			local UICorner25 = Instance.new("UICorner");
+			local UIStroke13 = Instance.new("UIStroke");
 
-    local SaveDebounce = task.debounce(function()
-        save(GuiConfig["Save Config"]["Folder"], GuiConfig["Save Config"]["Name Config"], Tabs)
-    end, 0.5)
+			Slider.BackgroundColor3 = Color3.fromRGB(30.00000011175871, 30.00000011175871, 30.00000011175871)
+			Slider.BackgroundTransparency = 0.30000001192092896
+			Slider.BorderColor3 = Color3.fromRGB(0, 0, 0)
+			Slider.BorderSizePixel = 0
+			Slider.LayoutOrder = CountItem
+			Slider.Size = UDim2.new(1, -8, 0, 67)
+			Slider.Name = "Slider"
+			Slider.Parent = ScrollLayers
 
-    local Slider = Instance.new("Frame")
-    local UICorner20 = Instance.new("UICorner")
-    local SliderTitle = Instance.new("TextLabel")
-    local SliderDescription = Instance.new("TextLabel")
-    local UIStroke11 = Instance.new("UIStroke")
-    local BackButton = Instance.new("TextButton")
-    local BackImage = Instance.new("ImageLabel")
-    local ForwardButton = Instance.new("TextButton")
-    local ForwardImage = Instance.new("ImageLabel")
-    local RefreshButton = Instance.new("TextButton")
-    local RefreshImage = Instance.new("ImageLabel")
-    local SliderInput = Instance.new("Frame")
-    local UICorner22 = Instance.new("UICorner")
-    local UIStroke12 = Instance.new("UIStroke")
-    local SliderBox = Instance.new("TextBox")
-    local SliderNumber = Instance.new("TextLabel")
-    local SliderFrame = Instance.new("Frame")
-    local UICorner23 = Instance.new("UICorner")
-    local SliderDrag = Instance.new("Frame")
-    local UICorner24 = Instance.new("UICorner")
-    local SliderCircle = Instance.new("Frame")
-    local UICorner25 = Instance.new("UICorner")
-    local UIStroke13 = Instance.new("UIStroke")
+			UICorner20.CornerRadius = UDim.new(0, 3)
+			UICorner20.Parent = Slider
 
-    Slider.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
-    Slider.BackgroundTransparency = 0.3
-    Slider.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    Slider.BorderSizePixel = 0
-    Slider.LayoutOrder = CountItem
-    Slider.Size = UDim2.new(1, -8, 0, 67)
-    Slider.Name = "Slider"
-    Slider.Parent = ScrollLayers
+			SliderTitle.Font = Enum.Font.GothamBold
+			SliderTitle.Text = SliderConfig.Title
+			SliderTitle.TextColor3 = Color3.fromRGB(255, 255, 255)
+			SliderTitle.TextSize = 12
+			SliderTitle.TextXAlignment = Enum.TextXAlignment.Left
+			SliderTitle.TextYAlignment = Enum.TextYAlignment.Top
+			SliderTitle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			SliderTitle.BackgroundTransparency = 0.9990000128746033
+			SliderTitle.BorderColor3 = Color3.fromRGB(0, 0, 0)
+			SliderTitle.BorderSizePixel = 0
+			SliderTitle.Position = UDim2.new(0, 5, 0, 1)
+			SliderTitle.Size = UDim2.new(1, -100, 0, 12)
+			SliderTitle.Name = "SliderTitle"
+			SliderTitle.Parent = Slider
 
-    UICorner20.CornerRadius = UDim.new(0, 3)
-    UICorner20.Parent = Slider
+			SliderDescription.Font = Enum.Font.Gotham
+			SliderDescription.Text = SliderConfig.Content
+			SliderDescription.TextColor3 = Color3.fromRGB(80.00000283122063, 80.00000283122063, 80.00000283122063)
+			SliderDescription.TextSize = 12
+			SliderDescription.TextXAlignment = Enum.TextXAlignment.Left
+			SliderDescription.TextYAlignment = Enum.TextYAlignment.Top
+			SliderDescription.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			SliderDescription.BackgroundTransparency = 0.9990000128746033
+			SliderDescription.BorderColor3 = Color3.fromRGB(0, 0, 0)
+			SliderDescription.BorderSizePixel = 0
+			SliderDescription.Position = UDim2.new(0, 5, 0, 14)
+			SliderDescription.Size = UDim2.new(1, -100, 0, 12)
+			SliderDescription.Name = "SliderDescription"
+			SliderDescription.Parent = Slider
 
-    SliderTitle.Font = Enum.Font.GothamBold
-    SliderTitle.Text = SliderConfig.Title
-    SliderTitle.TextColor3 = Color3.fromRGB(255, 255, 255)
-    SliderTitle.TextSize = 12
-    SliderTitle.TextXAlignment = Enum.TextXAlignment.Left
-    SliderTitle.TextYAlignment = Enum.TextYAlignment.Top
-    SliderTitle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    SliderTitle.BackgroundTransparency = 0.999
-    SliderTitle.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    SliderTitle.BorderSizePixel = 0
-    SliderTitle.Position = UDim2.new(0, 5, 0, 1)
-    SliderTitle.Size = UDim2.new(1, -100, 0, 12)
-    SliderTitle.Name = "SliderTitle"
-    SliderTitle.Parent = Slider
+			UIStroke11.Color = Color3.fromRGB(50.000000819563866, 50.000000819563866, 50.000000819563866)
+			UIStroke11.Thickness = 0.30000001192092896
+			UIStroke11.Parent = SliderDescription
 
-    SliderDescription.Font = Enum.Font.Gotham
-    SliderDescription.Text = SliderConfig.Content
-    SliderDescription.TextColor3 = Color3.fromRGB(80, 80, 80)
-    SliderDescription.TextSize = 12
-    SliderDescription.TextXAlignment = Enum.TextXAlignment.Left
-    SliderDescription.TextYAlignment = Enum.TextYAlignment.Top
-    SliderDescription.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    SliderDescription.BackgroundTransparency = 0.999
-    SliderDescription.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    SliderDescription.BorderSizePixel = 0
-    SliderDescription.Position = UDim2.new(0, 5, 0, 14)
-    SliderDescription.Size = UDim2.new(1, -100, 0, 12)
-    SliderDescription.Name = "SliderDescription"
-    SliderDescription.Parent = Slider
+			BackButton.Font = Enum.Font.SourceSans
+			BackButton.Text = ""
+			BackButton.TextColor3 = Color3.fromRGB(0, 0, 0)
+			BackButton.TextSize = 14
+			BackButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			BackButton.BackgroundTransparency = 0.9990000128746033
+			BackButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
+			BackButton.BorderSizePixel = 0
+			BackButton.Position = UDim2.new(0, 5, 0, 37)
+			BackButton.Size = UDim2.new(0, 26, 0, 26)
+			BackButton.Name = "BackButton"
+			BackButton.Parent = Slider
 
-    UIStroke11.Color = Color3.fromRGB(50, 50, 50)
-    UIStroke11.Thickness = 0.3
-    UIStroke11.Parent = SliderDescription
+			BackImage.Image = "rbxassetid://18261619962"
+			BackImage.ImageColor3 = Color3.fromRGB(80.00000283122063, 80.00000283122063, 80.00000283122063)
+			BackImage.ImageTransparency = 0.30000001192092896
+			BackImage.AnchorPoint = Vector2.new(0.5, 0.5)
+			BackImage.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			BackImage.BackgroundTransparency = 0.9990000128746033
+			BackImage.BorderColor3 = Color3.fromRGB(0, 0, 0)
+			BackImage.BorderSizePixel = 0
+			BackImage.Position = UDim2.new(0.5, 0, 0.5, 0)
+			BackImage.Size = UDim2.new(1, -7, 1, -7)
+			BackImage.Name = "BackImage"
+			BackImage.Parent = BackButton
 
-    BackButton.Font = Enum.Font.SourceSans
-    BackButton.Text = ""
-    BackButton.TextColor3 = Color3.fromRGB(0, 0, 0)
-    BackButton.TextSize = 14
-    BackButton.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
-    BackButton.BackgroundTransparency = 0.3
-    BackButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    BackButton.BorderSizePixel = 0
-    BackButton.Position = UDim2.new(0, 5, 0, 37)
-    BackButton.Size = UDim2.new(0, 26, 0, 26)
-    BackButton.Name = "BackButton"
-    BackButton.Parent = Slider
+			ForwardButton.Font = Enum.Font.SourceSans
+			ForwardButton.Text = ""
+			ForwardButton.TextColor3 = Color3.fromRGB(0, 0, 0)
+			ForwardButton.TextSize = 14
+			ForwardButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			ForwardButton.BackgroundTransparency = 0.9990000128746033
+			ForwardButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
+			ForwardButton.BorderSizePixel = 0
+			ForwardButton.Position = UDim2.new(0, 52, 0, 37)
+			ForwardButton.Size = UDim2.new(0, 26, 0, 26)
+			ForwardButton.Name = "ForwardButton"
+			ForwardButton.Parent = Slider
 
-    BackImage.Image = "rbxassetid://18261619962"
-    BackImage.ImageColor3 = Color3.fromRGB(80, 80, 80)
-    BackImage.ImageTransparency = 0.3
-    BackImage.AnchorPoint = Vector2.new(0.5, 0.5)
-    BackImage.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    BackImage.BackgroundTransparency = 0.999
-    BackImage.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    BackImage.BorderSizePixel = 0
-    BackImage.Position = UDim2.new(0.5, 0, 0.5, 0)
-    BackImage.Size = UDim2.new(1, -7, 1, -7)
-    BackImage.Name = "BackImage"
-    BackImage.Parent = BackButton
+			ForwardImage.Image = "rbxassetid://18261621516"
+			ForwardImage.ImageColor3 = Color3.fromRGB(80.00000283122063, 80.00000283122063, 80.00000283122063)
+			ForwardImage.ImageTransparency = 0.30000001192092896
+			ForwardImage.AnchorPoint = Vector2.new(0.5, 0.5)
+			ForwardImage.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			ForwardImage.BackgroundTransparency = 0.9990000128746033
+			ForwardImage.BorderColor3 = Color3.fromRGB(0, 0, 0)
+			ForwardImage.BorderSizePixel = 0
+			ForwardImage.Position = UDim2.new(0.5, 0, 0.5, 0)
+			ForwardImage.Size = UDim2.new(1, -7, 1, -7)
+			ForwardImage.Name = "ForwardImage"
+			ForwardImage.Parent = ForwardButton
 
-    ForwardButton.Font = Enum.Font.SourceSans
-    ForwardButton.Text = ""
-    ForwardButton.TextColor3 = Color3.fromRGB(0, 0, 0)
-    ForwardButton.TextSize = 14
-    ForwardButton.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
-    ForwardButton.BackgroundTransparency = 0.3
-    ForwardButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    ForwardButton.BorderSizePixel = 0
-    ForwardButton.Position = UDim2.new(0, 52, 0, 37)
-    ForwardButton.Size = UDim2.new(0, 26, 0, 26)
-    ForwardButton.Name = "ForwardButton"
-    ForwardButton.Parent = Slider
+			RefreshButton.Font = Enum.Font.SourceSans
+			RefreshButton.Text = ""
+			RefreshButton.TextColor3 = Color3.fromRGB(0, 0, 0)
+			RefreshButton.TextSize = 14
+			RefreshButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			RefreshButton.BackgroundTransparency = 0.9990000128746033
+			RefreshButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
+			RefreshButton.BorderSizePixel = 0
+			RefreshButton.Position = UDim2.new(0, 28, 0, 37)
+			RefreshButton.Size = UDim2.new(0, 26, 0, 26)
+			RefreshButton.Name = "RefreshButton"
+			RefreshButton.Parent = Slider
 
-    ForwardImage.Image = "rbxassetid://18261621516"
-    ForwardImage.ImageColor3 = Color3.fromRGB(80, 80, 80)
-    ForwardImage.ImageTransparency = 0.3
-    ForwardImage.AnchorPoint = Vector2.new(0.5, 0.5)
-    ForwardImage.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    ForwardImage.BackgroundTransparency = 0.999
-    ForwardImage.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    ForwardImage.BorderSizePixel = 0
-    ForwardImage.Position = UDim2.new(0.5, 0, 0.5, 0)
-    ForwardImage.Size = UDim2.new(1, -7, 1, -7)
-    ForwardImage.Name = "ForwardImage"
-    ForwardImage.Parent = ForwardButton
+			RefreshImage.Image = "rbxassetid://18261607688"
+			RefreshImage.ImageColor3 = Color3.fromRGB(80.00000283122063, 80.00000283122063, 80.00000283122063)
+			RefreshImage.ImageTransparency = 0.30000001192092896
+			RefreshImage.AnchorPoint = Vector2.new(0.5, 0.5)
+			RefreshImage.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			RefreshImage.BackgroundTransparency = 0.9990000128746033
+			RefreshImage.BorderColor3 = Color3.fromRGB(0, 0, 0)
+			RefreshImage.BorderSizePixel = 0
+			RefreshImage.Position = UDim2.new(0.5, 0, 0.5, 0)
+			RefreshImage.Size = UDim2.new(1, -3, 1, -3)
+			RefreshImage.Name = "RefreshImage"
+			RefreshImage.Parent = RefreshButton
 
-    RefreshButton.Font = Enum.Font.SourceSans
-    RefreshButton.Text = ""
-    RefreshButton.TextColor3 = Color3.fromRGB(0, 0, 0)
-    RefreshButton.TextSize = 14
-    RefreshButton.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
-    RefreshButton.BackgroundTransparency = 0.3
-    RefreshButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    RefreshButton.BorderSizePixel = 0
-    RefreshButton.Position = UDim2.new(0, 28, 0, 37)
-    RefreshButton.Size = UDim2.new(0, 26, 0, 26)
-    RefreshButton.Name = "RefreshButton"
-    RefreshButton.Parent = Slider
+			SliderInput.AnchorPoint = Vector2.new(1, 0)
+			SliderInput.BackgroundColor3 = Color3.fromRGB(25.000000409781933, 25.000000409781933, 25.000000409781933)
+			SliderInput.BorderColor3 = Color3.fromRGB(0, 0, 0)
+			SliderInput.BorderSizePixel = 0
+			SliderInput.Position = UDim2.new(1, -45, 0, 45)
+			SliderInput.Size = UDim2.new(0, 65, 0, 15)
+			SliderInput.Name = "SliderInput"
+			SliderInput.Parent = Slider
 
-    RefreshImage.Image = "rbxassetid://18261607688"
-    RefreshImage.ImageColor3 = Color3.fromRGB(80, 80, 80)
-    RefreshImage.ImageTransparency = 0.3
-    RefreshImage.AnchorPoint = Vector2.new(0.5, 0.5)
-    RefreshImage.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    RefreshImage.BackgroundTransparency = 0.999
-    RefreshImage.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    RefreshImage.BorderSizePixel = 0
-    RefreshImage.Position = UDim2.new(0.5, 0, 0.5, 0)
-    RefreshImage.Size = UDim2.new(1, -3, 1, -3)
-    RefreshImage.Name = "RefreshImage"
-    RefreshImage.Parent = RefreshButton
+			UICorner22.CornerRadius = UDim.new(0, 2)
+			UICorner22.Parent = SliderInput
 
-    SliderInput.AnchorPoint = Vector2.new(1, 0)
-    SliderInput.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
-    SliderInput.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    SliderInput.BorderSizePixel = 0
-    SliderInput.Position = UDim2.new(1, -45, 0, 45)
-    SliderInput.Size = UDim2.new(0, 65, 0, 15)
-    SliderInput.Name = "SliderInput"
-    SliderInput.Parent = Slider
+			UIStroke12.Color = Color3.fromRGB(60.00000022351742, 60.00000022351742, 60.00000022351742)
+			UIStroke12.Thickness = 1.600000023841858
+			UIStroke12.Parent = SliderInput
 
-    UICorner22.CornerRadius = UDim.new(0, 2)
-    UICorner22.Parent = SliderInput
+			SliderBox.Font = Enum.Font.GothamBold
+			SliderBox.PlaceholderColor3 = Color3.fromRGB(100.00000163912773, 100.00000163912773, 100.00000163912773)
+			SliderBox.PlaceholderText = ". . ."
+			SliderBox.Text = ""
+			SliderBox.TextColor3 = Color3.fromRGB(150.0000062584877, 150.0000062584877, 150.0000062584877)
+			SliderBox.TextSize = 13
+			SliderBox.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			SliderBox.BackgroundTransparency = 0.9990000128746033
+			SliderBox.BorderColor3 = Color3.fromRGB(0, 0, 0)
+			SliderBox.BorderSizePixel = 0
+			SliderBox.Size = UDim2.new(1, 0, 1, 0)
+			SliderBox.Name = "SliderBox"
+			SliderBox.Parent = SliderInput
 
-    UIStroke12.Color = Color3.fromRGB(60, 60, 60)
-    UIStroke12.Thickness = 1.6
-    UIStroke12.Parent = SliderInput
+			SliderNumber.Font = Enum.Font.GothamBold
+			SliderNumber.Text = SliderConfig.Default
+			SliderNumber.TextColor3 = Color3.fromRGB(150.0000062584877, 150.0000062584877, 150.0000062584877)
+			SliderNumber.TextSize = 13
+			SliderNumber.TextXAlignment = Enum.TextXAlignment.Right
+			SliderNumber.AnchorPoint = Vector2.new(1, 0)
+			SliderNumber.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			SliderNumber.BackgroundTransparency = 0.9990000128746033
+			SliderNumber.BorderColor3 = Color3.fromRGB(0, 0, 0)
+			SliderNumber.BorderSizePixel = 0
+			SliderNumber.Position = UDim2.new(1, -130, 0, 45)
+			SliderNumber.Size = UDim2.new(0, 65, 0, 15)
+			SliderNumber.Name = "SliderNumber"
+			SliderNumber.Parent = Slider
 
-    SliderBox.Font = Enum.Font.GothamBold
-    SliderBox.PlaceholderColor3 = Color3.fromRGB(100, 100, 100)
-    SliderBox.PlaceholderText = ". . ."
-    SliderBox.Text = ""
-    SliderBox.TextColor3 = Color3.fromRGB(150, 150, 150)
-    SliderBox.TextSize = 13
-    SliderBox.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    SliderBox.BackgroundTransparency = 0.999
-    SliderBox.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    SliderBox.BorderSizePixel = 0
-    SliderBox.Size = UDim2.new(1, 0, 1, 0)
-    SliderBox.Name = "SliderBox"
-    SliderBox.Parent = SliderInput
+			SliderFrame.BackgroundColor3 = Color3.fromRGB(60.00000022351742, 60.00000022351742, 60.00000022351742)
+			SliderFrame.BackgroundTransparency = 0.30000001192092896
+			SliderFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+			SliderFrame.BorderSizePixel = 0
+			SliderFrame.Position = UDim2.new(0, 5, 0, 32)
+			SliderFrame.Size = UDim2.new(1, -50, 0, 2)
+			SliderFrame.Name = "SliderFrame"
+			SliderFrame.Parent = Slider
 
-    SliderNumber.Font = Enum.Font.GothamBold
-    SliderNumber.Text = tostring(SliderConfig.Default) .. SliderConfig.Unit
-    SliderNumber.TextColor3 = Color3.fromRGB(150, 150, 150)
-    SliderNumber.TextSize = 13
-    SliderNumber.TextXAlignment = Enum.TextXAlignment.Right
-    SliderNumber.AnchorPoint = Vector2.new(1, 0)
-    SliderNumber.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    SliderNumber.BackgroundTransparency = 0.999
-    SliderNumber.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    SliderNumber.BorderSizePixel = 0
-    SliderNumber.Position = UDim2.new(1, -130, 0, 45)
-    SliderNumber.Size = UDim2.new(0, 65, 0, 15)
-    SliderNumber.Name = "SliderNumber"
-    SliderNumber.Parent = Slider
+			UICorner23.Parent = SliderFrame
 
-    SliderFrame.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
-    SliderFrame.BackgroundTransparency = 0.3
-    SliderFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    SliderFrame.BorderSizePixel = 0
-    SliderFrame.Position = UDim2.new(0, 85, 0, 45)
-    SliderFrame.Size = UDim2.new(1, -135, 0, 2)
-    SliderFrame.Name = "SliderFrame"
-    SliderFrame.Parent = Slider
+			SliderDrag.AnchorPoint = Vector2.new(0, 0.5)
+			SliderDrag.BackgroundColor3 = Color3.fromRGB(0, 150.0000062584877, 255)
+			SliderDrag.BorderColor3 = Color3.fromRGB(0, 0, 0)
+			SliderDrag.BorderSizePixel = 0
+			SliderDrag.Position = UDim2.new(0, 0, 0.5, 0)
+			SliderDrag.Size = UDim2.new(0, 0, 0, 2)
+			SliderDrag.Name = "SliderDrag"
+			SliderDrag.Parent = SliderFrame
 
-    UICorner23.CornerRadius = UDim.new(0, 1)
-    UICorner23.Parent = SliderFrame
+			UICorner24.Parent = SliderDrag
 
-    SliderDrag.AnchorPoint = Vector2.new(0, 0.5)
-    SliderDrag.BackgroundColor3 = GuiConfig.Color or Color3.fromRGB(0, 150, 255)
-    SliderDrag.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    SliderDrag.BorderSizePixel = 0
-    SliderDrag.Position = UDim2.new(0, 0, 0.5, 0)
-    SliderDrag.Size = UDim2.new(0, 0, 0, 2)
-    SliderDrag.Name = "SliderDrag"
-    SliderDrag.Parent = SliderFrame
+			SliderCircle.AnchorPoint = Vector2.new(1, 0.5)
+			SliderCircle.BackgroundColor3 = Color3.fromRGB(0, 150.0000062584877, 255)
+			SliderCircle.BorderColor3 = Color3.fromRGB(0, 0, 0)
+			SliderCircle.BorderSizePixel = 0
+			SliderCircle.Position = UDim2.new(1, 5, 0.5, 0)
+			SliderCircle.Size = UDim2.new(0, 10, 0, 10)
+			SliderCircle.Name = "SliderCircle"
+			SliderCircle.Parent = SliderDrag
 
-    UICorner24.CornerRadius = UDim.new(0, 1)
-    UICorner24.Parent = SliderDrag
+			UICorner25.Parent = SliderCircle
 
-    SliderCircle.AnchorPoint = Vector2.new(1, 0.5)
-    SliderCircle.BackgroundColor3 = GuiConfig.Color or Color3.fromRGB(0, 150, 255)
-    SliderCircle.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    SliderCircle.BorderSizePixel = 0
-    SliderCircle.Position = UDim2.new(1, 5, 0.5, 0)
-    SliderCircle.Size = UDim2.new(0, 10, 0, 10)
-    SliderCircle.Name = "SliderCircle"
-    SliderCircle.Parent = SliderDrag
+			UIStroke13.Color = Color3.fromRGB(0, 150.0000062584877, 255)
+			UIStroke13.Parent = SliderCircle
+			local Dragging = false
+			local function Round(Number, Factor)
+				local Result = math.floor(Number/Factor + (math.sign(Number) * 0.5)) * Factor
+				if Result < 0 then 
+					Result = Result + Factor 
+				end
+				return Result
+			end
+			function SliderFunc:Set(Value)
+				Value = math.clamp(Round(Value, SliderConfig.Increment), SliderConfig.Min, SliderConfig.Max)
+				SliderFunc.Value = Value
+				SliderNumber.Text = tostring(Value)
+				TweenService:Create(
+					SliderDrag,
+					TweenInfo.new(0.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
+					{Size = UDim2.fromScale((Value - SliderConfig.Min) / (SliderConfig.Max - SliderConfig.Min), 1)}
+				):Play()
+				save(GuiConfig["Save Config"]["Folder"], GuiConfig["Save Config"]["Name Config"], Tabs)
+				SliderConfig.Callback(Value)
+			end
+			Slider.InputBegan:Connect(function(Input)
+				if Input.UserInputType == Enum.UserInputType.MouseButton1 then 
+					Dragging = true 
+				end 
+			end)
+			Slider.InputEnded:Connect(function(Input) 
+				if Input.UserInputType == Enum.UserInputType.MouseButton1 then 
+					Dragging = false 
+					local SizeScale = math.clamp((Input.Position.X - SliderFrame.AbsolutePosition.X) / SliderFrame.AbsoluteSize.X, 0, 1)
+					SliderFunc:Set(SliderConfig.Min + ((SliderConfig.Max - SliderConfig.Min) * SizeScale)) 
+				end 
+			end)
+			UserInputService.InputChanged:Connect(function(Input)
+				if Dragging and Input.UserInputType == Enum.UserInputType.MouseMovement then 
+					local SizeScale = math.clamp((Input.Position.X - SliderFrame.AbsolutePosition.X) / SliderFrame.AbsoluteSize.X, 0, 1)
+					Value = math.clamp(Round(SliderConfig.Min + ((SliderConfig.Max - SliderConfig.Min) * SizeScale), SliderConfig.Increment), SliderConfig.Min, SliderConfig.Max)
+					SliderNumber.Text = tostring(Value)
+					TweenService:Create(
+						SliderDrag,
+						TweenInfo.new(0.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
+						{Size = UDim2.fromScale((Value - SliderConfig.Min) / (SliderConfig.Max - SliderConfig.Min), 1)}
+					):Play()
+				end
+			end)
+			SliderBox:GetPropertyChangedSignal("Text"):Connect(function()
+				local Valid = SliderBox.Text:gsub("[^%d]", "")
+				if Valid ~= "" then
+					local ValidNumber = math.min(tonumber(Valid), SliderConfig.Max)
+					SliderBox.Text = tostring(ValidNumber)
+				else
+					SliderBox.Text = tostring(Valid)
+				end
+			end)
+			SliderBox.FocusLost:Connect(function()
+				if SliderBox.Text ~= "" then
+					SliderFunc:Set(tonumber(SliderBox.Text))
+				else
+					SliderFunc:Set(0)
+				end
+				SliderNumber.Text = SliderBox.Text
+				SliderBox.Text = ""
+			end)
+			BackButton.Activated:Connect(function()
+				if SliderFunc.Value > SliderConfig.Min then
+					SliderFunc:Set(SliderFunc.Value - SliderConfig.Increment)
+				end
+			end)
+			ForwardButton.Activated:Connect(function()
+				if SliderFunc.Value < SliderConfig.Max then
+					SliderFunc:Set(SliderFunc.Value + SliderConfig.Increment)
+				end
+			end)
+			RefreshButton.Activated:Connect(function()
+				SliderFunc:Set(SliderConfig.Default)
+			end)
+			EnterMouseGUI(Slider)
+			SliderFunc:Set(tonumber(SliderConfig.Default))
+			AddSetting(SliderFunc, Slider)
 
-    UICorner25.CornerRadius = UDim.new(0, 5)
-    UICorner25.Parent = SliderCircle
-
-    UIStroke13.Color = GuiConfig.Color or Color3.fromRGB(0, 150, 255)
-    UIStroke13.Thickness = 1
-    UIStroke13.Parent = SliderCircle
-
-    -- Round function supporting decimals
-    local function Round(Number, Factor)
-        local multiplier = 10 ^ SliderConfig.Decimals
-        local Result = math.floor(Number * multiplier / Factor + 0.5) * Factor / multiplier
-        return math.clamp(Result, SliderConfig.Min, SliderConfig.Max)
-    end
-
-    function SliderFunc:Set(Value)
-        Value = Round(Value, SliderConfig.Increment)
-        SliderFunc.Value = Value
-        SliderNumber.Text = string.format("%." .. SliderConfig.Decimals .. "f%s", Value, SliderConfig.Unit)
-        TweenService:Create(
-            SliderDrag,
-            TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-            {Size = UDim2.fromScale((Value - SliderConfig.Min) / (SliderConfig.Max - SliderConfig.Min), 1)}
-        ):Play()
-        SaveDebounce()
-        SliderConfig.Callback(Value)
-    end
-
-    SliderCircle.InputBegan:Connect(function(Input)
-        if Input.UserInputType == Enum.UserInputType.MouseButton1 then
-            Dragging = true
-        end
-    end)
-
-    SliderCircle.InputEnded:Connect(function(Input)
-        if Input.UserInputType == Enum.UserInputType.MouseButton1 then
-            Dragging = false
-            local SizeScale = math.clamp((Input.Position.X - SliderFrame.AbsolutePosition.X) / SliderFrame.AbsoluteSize.X, 0, 1)
-            SliderFunc:Set(SliderConfig.Min + ((SliderConfig.Max - SliderConfig.Min) * SizeScale))
-        end
-    end)
-
-    UserInputService.InputChanged:Connect(function(Input)
-        if Dragging and Input.UserInputType == Enum.UserInputType.MouseMovement then
-            local SizeScale = math.clamp((Input.Position.X - SliderFrame.AbsolutePosition.X) / SliderFrame.AbsoluteSize.X, 0, 1)
-            local Value = SliderConfig.Min + ((SliderConfig.Max - SliderConfig.Min) * SizeScale)
-            SliderFunc:Set(Value)
-        end
-    end)
-
-    SliderBox:GetPropertyChangedSignal("Text"):Connect(function()
-        local text = SliderBox.Text:gsub("[^%d.-]", "") 
-        if text == "" or text == "-" or text == "." then
-            SliderBox.Text = text
-        else
-            local num = tonumber(text)
-            if num then
-                SliderBox.Text = tostring(math.clamp(num, SliderConfig.Min, SliderConfig.Max))
-            else
-                SliderBox.Text = tostring(SliderFunc.Value)
-            end
-        end
-    end)
-
-    SliderBox.FocusLost:Connect(function()
-        local text = SliderBox.Text
-        if text == "" or text == "-" or text == "." then
-            SliderFunc:Set(SliderFunc.Value) 
-        else
-            local num = tonumber(text)
-            if num then
-                SliderFunc:Set(num)
-            else
-                SliderFunc:Set(SliderFunc.Value)
-            end
-        end
-        SliderBox.Text = ""
-    end)
-
-    BackButton.Activated:Connect(function()
-        if SliderFunc.Value > SliderConfig.Min then
-            SliderFunc:Set(SliderFunc.Value - SliderConfig.Increment)
-        end
-    end)
-
-    ForwardButton.Activated:Connect(function()
-        if SliderFunc.Value < SliderConfig.Max then
-            SliderFunc:Set(SliderFunc.Value + SliderConfig.Increment)
-        end
-    end)
-
-    RefreshButton.Activated:Connect(function()
-        SliderFunc:Set(SliderConfig.Default)
-    end)
-
-    EnterMouseGUI(SliderCircle)
-    EnterMouseGUI(BackButton)
-    EnterMouseGUI(ForwardButton)
-    EnterMouseGUI(RefreshButton)
-
-    SliderFunc:Set(SliderConfig.Default)
-    AddSetting(SliderFunc, Slider)
-
-    Items[SliderName] = SliderFunc
-    CountItem = CountItem + 1
-    return SliderFunc
-end
+			Items[SliderName] = SliderFunc
+			CountItem = CountItem + 1
+			return SliderFunc
+		end
 function Items:MakeDropdown(DropdownName, DropdownConfig)
     local DropdownConfig = DropdownConfig or {}
     DropdownConfig.Title = DropdownConfig.Title or "Title"
