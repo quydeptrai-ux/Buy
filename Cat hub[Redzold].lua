@@ -2439,6 +2439,72 @@ function Items:MakeKeybind(KeybindName, KeybindConfig)
     CountItem = CountItem + 1
     return KeybindFunc
 end
+function Items:MakeThumbnailsImage(ThumbnailsName, ThumbnailsConfig)
+    local ThumbnailsConfig = ThumbnailsConfig or {}
+    ThumbnailsConfig.Icon = ThumbnailsConfig.Icon or ""
+    ThumbnailsConfig.Size = ThumbnailsConfig.Size or UDim2.new(1, -8, 0, 100)
+    local ThumbnailsFunc = {Type = "ThumbnailsImage"}
+    local ThumbnailsName = ThumbnailsName or "ThumbnailsImage"
+
+    local Thumbnails = Instance.new("Frame")
+    local UICorner = Instance.new("UICorner")
+    local ThumbnailImage = Instance.new("ImageLabel")
+    local UIStroke = Instance.new("UIStroke")
+
+    Thumbnails.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+    Thumbnails.BackgroundTransparency = 0.3
+    Thumbnails.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    Thumbnails.BorderSizePixel = 0
+    Thumbnails.LayoutOrder = CountItem
+    Thumbnails.Size = ThumbnailsConfig.Size
+    Thumbnails.Name = "Thumbnails"
+    Thumbnails.Parent = ScrollLayers
+
+    UICorner.CornerRadius = UDim.new(0, 3)
+    UICorner.Parent = Thumbnails
+
+    ThumbnailImage.Image = ThumbnailsConfig.Icon
+    ThumbnailImage.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    ThumbnailImage.BackgroundTransparency = 0.999
+    ThumbnailImage.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    ThumbnailImage.BorderSizePixel = 0
+    ThumbnailImage.Position = UDim2.new(0, 4, 0, 4)
+    ThumbnailImage.Size = UDim2.new(1, -8, 1, -8)
+    ThumbnailImage.Name = "ThumbnailImage"
+    ThumbnailImage.Parent = Thumbnails
+    ThumbnailImage.ScaleType = Enum.ScaleType.Fit
+
+    UIStroke.Color = Color3.fromRGB(50, 50, 50)
+    UIStroke.Thickness = 0.5
+    UIStroke.Parent = ThumbnailImage
+
+    local ImageCorner = Instance.new("UICorner")
+    ImageCorner.CornerRadius = UDim.new(0, 3)
+    ImageCorner.Parent = ThumbnailImage
+
+    function ThumbnailsFunc:Set(NewConfig)
+        NewConfig = NewConfig or {}
+        ThumbnailsConfig.Icon = NewConfig.Icon or ThumbnailsConfig.Icon
+        ThumbnailsConfig.Size = NewConfig.Size or ThumbnailsConfig.Size
+
+        ThumbnailImage.Image = ThumbnailsConfig.Icon
+        Thumbnails.Size = ThumbnailsConfig.Size
+
+        UpSize2()
+    end
+
+    local function UpdateSize()
+        UpSize2()
+    end
+    UpdateSize()
+
+    EnterMouseGUI(Thumbnails)
+    AddSetting(ThumbnailsFunc, Thumbnails)
+
+    Items[ThumbnailsName] = ThumbnailsFunc
+    CountItem = CountItem + 1
+    return ThumbnailsFunc
+end
 function Items:MakeDropdown(DropdownName, DropdownConfig)
     local DropdownConfig = DropdownConfig or {}
     DropdownConfig.Title = DropdownConfig.Title or "Title"
