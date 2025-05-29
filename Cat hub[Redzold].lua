@@ -2308,8 +2308,8 @@ function Items:MakeKeybind(KeybindName, KeybindConfig)
     KeybindTitle.BackgroundTransparency = 0.999
     KeybindTitle.BorderColor3 = Color3.fromRGB(0, 0, 0)
     KeybindTitle.BorderSizePixel = 0
-    KeybindTitle.Position = UDim2.new(0, 5, 0, 1)
-    KeybindTitle.Size = UDim2.new(1, -100, 0, 12)
+    KeybindTitle.Position = UDim2.new(0, 10, 0, 5)
+    KeybindTitle.Size = UDim2.new(0.7, -10, 0, 14)
     KeybindTitle.Name = "KeybindTitle"
     KeybindTitle.Parent = Keybind
 
@@ -2324,8 +2324,8 @@ function Items:MakeKeybind(KeybindName, KeybindConfig)
     KeybindDescription.BackgroundTransparency = 0.999
     KeybindDescription.BorderColor3 = Color3.fromRGB(0, 0, 0)
     KeybindDescription.BorderSizePixel = 0
-    KeybindDescription.Position = UDim2.new(0, 5, 0, 14)
-    KeybindDescription.Size = UDim2.new(1, -100, 0, 36)
+    KeybindDescription.Position = UDim2.new(0, 10, 0, 22)
+    KeybindDescription.Size = UDim2.new(0.7, -10, 0, 36)
     KeybindDescription.Name = "KeybindDescription"
     KeybindDescription.Parent = Keybind
 
@@ -2336,29 +2336,31 @@ function Items:MakeKeybind(KeybindName, KeybindConfig)
     KeybindInput.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
     KeybindInput.BorderColor3 = Color3.fromRGB(0, 0, 0)
     KeybindInput.BorderSizePixel = 0
-    KeybindInput.Position = UDim2.new(1, -45, 0, 32)
-    KeybindInput.Size = UDim2.new(0, 65, 0, 20)
+    KeybindInput.Position = UDim2.new(0.7, 5, 0, 5)
+    KeybindInput.Size = UDim2.new(0.3, -15, 0, 24)
     KeybindInput.Name = "KeybindInput"
     KeybindInput.Parent = Keybind
 
-    UICornerInput.CornerRadius = UDim.new(0, 2)
+    UICornerInput.CornerRadius = UDim.new(0, 4)
     UICornerInput.Parent = KeybindInput
 
     UIStrokeInput.Color = Color3.fromRGB(60, 60, 60)
-    UIStrokeInput.Thickness = 1.6
+    UIStrokeInput.Thickness = 1
     UIStrokeInput.Parent = KeybindInput
 
     KeybindBox.Font = Enum.Font.GothamBold
     KeybindBox.Text = KeybindConfig.Keybind.Name or "..."
     KeybindBox.TextColor3 = Color3.fromRGB(150, 150, 150)
-    KeybindBox.TextSize = 13
+    KeybindBox.TextSize = 12
     KeybindBox.PlaceholderText = "..."
     KeybindBox.PlaceholderColor3 = Color3.fromRGB(100, 100, 100)
     KeybindBox.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
     KeybindBox.BackgroundTransparency = 0.999
     KeybindBox.BorderColor3 = Color3.fromRGB(0, 0, 0)
     KeybindBox.BorderSizePixel = 0
-    KeybindBox.Size = UDim2.new(1, 0, 1, 0)
+    KeybindBox.Size = UDim2.new(1, -4, 1, -4)
+    KeybindBox.Position = UDim2.new(0, 2, 0, 2)
+    KeybindBox.TextXAlignment = Enum.TextXAlignment.Center
     KeybindBox.Name = "KeybindBox"
     KeybindBox.Parent = KeybindInput
 
@@ -2370,14 +2372,15 @@ function Items:MakeKeybind(KeybindName, KeybindConfig)
     KeybindButton.BackgroundTransparency = 0.999
     KeybindButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
     KeybindButton.BorderSizePixel = 0
-    KeybindButton.Size = UDim2.new(1, 0, 1, 0)
+    KeybindButton.Size = UDim2.new(0.3, -15, 0, 24)
+    KeybindButton.Position = UDim2.new(0.7, 5, 0, 5)
     KeybindButton.Name = "KeybindButton"
     KeybindButton.Parent = Keybind
 
     local function UpdateSize()
         local contentHeight = KeybindDescription.TextBounds.Y
-        local minHeight = 60
-        Keybind.Size = UDim2.new(1, -8, 0, math.max(minHeight, contentHeight + 24))
+        local minHeight = 36
+        Keybind.Size = UDim2.new(1, -8, 0, math.max(minHeight, contentHeight + 28))
         UpSize2()
     end
     UpdateSize()
