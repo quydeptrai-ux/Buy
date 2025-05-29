@@ -2266,6 +2266,176 @@ function WazureV1:Start(GuiConfig)
     CountItem = CountItem + 1
     return ParagraphFunc
 end
+function Items:MakeKeybind(KeybindName, KeybindConfig)
+    local KeybindConfig = KeybindConfig or {}
+    KeybindConfig.Title = KeybindConfig.Title or "Title"
+    KeybindConfig.Content = KeybindConfig.Content or ""
+    KeybindConfig.Keybind = KeybindConfig.Keybind or Enum.KeyCode.Unknown
+    KeybindConfig.Callback = KeybindConfig.Callback or function() end
+    local KeybindFunc = {Type = "Keybind", Value = KeybindConfig.Keybind}
+    local KeybindName = KeybindName or KeybindConfig.Title
+
+    local Keybind = Instance.new("Frame")
+    local UICorner = Instance.new("UICorner")
+    local KeybindTitle = Instance.new("TextLabel")
+    local KeybindDescription = Instance.new("TextLabel")
+    local UIStroke = Instance.new("UIStroke")
+    local KeybindInput = Instance.new("Frame")
+    local UICornerInput = Instance.new("UICorner")
+    local UIStrokeInput = Instance.new("UIStroke")
+    local KeybindBox = Instance.new("TextBox")
+    local KeybindButton = Instance.new("TextButton")
+
+    Keybind.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+    Keybind.BackgroundTransparency = 0.3
+    Keybind.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    Keybind.BorderSizePixel = 0
+    Keybind.LayoutOrder = CountItem
+    Keybind.Size = UDim2.new(1, -8, 0, 60)
+    Keybind.Name = "Keybind"
+    Keybind.Parent = ScrollLayers
+
+    UICorner.CornerRadius = UDim.new(0, 3)
+    UICorner.Parent = Keybind
+
+    KeybindTitle.Font = Enum.Font.GothamBold
+    KeybindTitle.Text = KeybindConfig.Title
+    KeybindTitle.TextColor3 = Color3.fromRGB(255, 255, 255)
+    KeybindTitle.TextSize = 12
+    KeybindTitle.TextXAlignment = Enum.TextXAlignment.Left
+    KeybindTitle.TextYAlignment = Enum.TextYAlignment.Top
+    KeybindTitle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    KeybindTitle.BackgroundTransparency = 0.999
+    KeybindTitle.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    KeybindTitle.BorderSizePixel = 0
+    KeybindTitle.Position = UDim2.new(0, 5, 0, 1)
+    KeybindTitle.Size = UDim2.new(1, -100, 0, 12)
+    KeybindTitle.Name = "KeybindTitle"
+    KeybindTitle.Parent = Keybind
+
+    KeybindDescription.Font = Enum.Font.Gotham
+    KeybindDescription.Text = KeybindConfig.Content
+    KeybindDescription.TextColor3 = Color3.fromRGB(80, 80, 80)
+    KeybindDescription.TextSize = 12
+    KeybindDescription.TextXAlignment = Enum.TextXAlignment.Left
+    KeybindDescription.TextYAlignment = Enum.TextYAlignment.Top
+    KeybindDescription.TextWrapped = true
+    KeybindDescription.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    KeybindDescription.BackgroundTransparency = 0.999
+    KeybindDescription.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    KeybindDescription.BorderSizePixel = 0
+    KeybindDescription.Position = UDim2.new(0, 5, 0, 14)
+    KeybindDescription.Size = UDim2.new(1, -100, 0, 36)
+    KeybindDescription.Name = "KeybindDescription"
+    KeybindDescription.Parent = Keybind
+
+    UIStroke.Color = Color3.fromRGB(50, 50, 50)
+    UIStroke.Thickness = 0.3
+    UIStroke.Parent = KeybindDescription
+
+    KeybindInput.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+    KeybindInput.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    KeybindInput.BorderSizePixel = 0
+    KeybindInput.Position = UDim2.new(1, -45, 0, 32)
+    KeybindInput.Size = UDim2.new(0, 65, 0, 20)
+    KeybindInput.Name = "KeybindInput"
+    KeybindInput.Parent = Keybind
+
+    UICornerInput.CornerRadius = UDim.new(0, 2)
+    UICornerInput.Parent = KeybindInput
+
+    UIStrokeInput.Color = Color3.fromRGB(60, 60, 60)
+    UIStrokeInput.Thickness = 1.6
+    UIStrokeInput.Parent = KeybindInput
+
+    KeybindBox.Font = Enum.Font.GothamBold
+    KeybindBox.Text = KeybindConfig.Keybind.Name or "..."
+    KeybindBox.TextColor3 = Color3.fromRGB(150, 150, 150)
+    KeybindBox.TextSize = 13
+    KeybindBox.PlaceholderText = "..."
+    KeybindBox.PlaceholderColor3 = Color3.fromRGB(100, 100, 100)
+    KeybindBox.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    KeybindBox.BackgroundTransparency = 0.999
+    KeybindBox.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    KeybindBox.BorderSizePixel = 0
+    KeybindBox.Size = UDim2.new(1, 0, 1, 0)
+    KeybindBox.Name = "KeybindBox"
+    KeybindBox.Parent = KeybindInput
+
+    KeybindButton.Font = Enum.Font.SourceSans
+    KeybindButton.Text = ""
+    KeybindButton.TextColor3 = Color3.fromRGB(0, 0, 0)
+    KeybindButton.TextSize = 14
+    KeybindButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    KeybindButton.BackgroundTransparency = 0.999
+    KeybindButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    KeybindButton.BorderSizePixel = 0
+    KeybindButton.Size = UDim2.new(1, 0, 1, 0)
+    KeybindButton.Name = "KeybindButton"
+    KeybindButton.Parent = Keybind
+
+    local function UpdateSize()
+        local contentHeight = KeybindDescription.TextBounds.Y
+        local minHeight = 60
+        Keybind.Size = UDim2.new(1, -8, 0, math.max(minHeight, contentHeight + 24))
+        UpSize2()
+    end
+    UpdateSize()
+
+    function KeybindFunc:Set(Value)
+        KeybindFunc.Value = Value or Enum.KeyCode.Unknown
+        KeybindBox.Text = KeybindFunc.Value.Name or "..."
+        save(GuiConfig["Save Config"]["Folder"], GuiConfig["Save Config"]["Name Config"], Tabs)
+        KeybindConfig.Callback(KeybindFunc.Value)
+    end
+
+    local waitingForKey = false
+    KeybindButton.Activated:Connect(function()
+        waitingForKey = true
+        KeybindBox.Text = "..."
+    end)
+
+    UserInputService.InputBegan:Connect(function(input, gameProcessedEvent)
+        if waitingForKey and not gameProcessedEvent and input.UserInputType == Enum.UserInputType.Keyboard then
+            KeybindFunc:Set(input.KeyCode)
+            waitingForKey = false
+        end
+    end)
+
+    KeybindBox:GetPropertyChangedSignal("Text"):Connect(function()
+        local inputText = KeybindBox.Text:upper()
+        for _, keyCode in pairs(Enum.KeyCode:GetEnumItems()) do
+            if keyCode.Name:upper() == inputText then
+                KeybindFunc:Set(keyCode)
+                return
+            end
+        end
+    end)
+
+    KeybindBox.FocusLost:Connect(function()
+        if KeybindBox.Text ~= "" then
+            local inputText = KeybindBox.Text:upper()
+            for _, keyCode in pairs(Enum.KeyCode:GetEnumItems()) do
+                if keyCode.Name:upper() == inputText then
+                    KeybindFunc:Set(keyCode)
+                    return
+                end
+            end
+            KeybindFunc:Set(Enum.KeyCode.Unknown)
+        else
+            KeybindFunc:Set(Enum.KeyCode.Unknown)
+        end
+    end)
+
+    EnterMouseGUI(Keybind)
+    AddSetting(KeybindFunc, Keybind)
+
+    KeybindFunc:Set(KeybindConfig.Keybind)
+
+    Items[KeybindName] = KeybindFunc
+    CountItem = CountItem + 1
+    return KeybindFunc
+end
 function Items:MakeDropdown(DropdownName, DropdownConfig)
     local DropdownConfig = DropdownConfig or {}
     DropdownConfig.Title = DropdownConfig.Title or "Title"
