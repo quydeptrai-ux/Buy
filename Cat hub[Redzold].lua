@@ -341,7 +341,7 @@ function WazureV1:Start(GuiConfig)
 	Main.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	Main.BorderSizePixel = 0
 	Main.Position = UDim2.new(0, 447, 0, 203)
-	Main.Size = UDim2.new(0, 500, 0, 400)
+	Main.Size = UDim2.new(0, 550, 0, 380)
 	Main.Name = "Main"
 	Main.Parent = AzuGui
 
@@ -2122,103 +2122,121 @@ function WazureV1:Start(GuiConfig)
 			CountItem = CountItem + 1
 			return SliderFunc
 		end
-		function Items:MakeParagraph(ParagraphName, ParagraphConfig)
-    local ParagraphConfig = ParagraphConfig or {}
-    ParagraphConfig.Title = ParagraphConfig.Title or "Title"
-    ParagraphConfig.Content = ParagraphConfig.Content or "Content"
-    ParagraphConfig.Icon = ParagraphConfig.Icon or "rbxassetid://18289959127" 
-    local ParagraphFunc = {Type = "Paragraph"}
+function MainTab:MakeParagraph(ParagraphName, ParagraphConfig)
+        ParagraphConfig = ParagraphConfig or {}
+        ParagraphConfig.Title = ParagraphConfig.Title or "Title"
+        ParagraphConfig.Content = ParagraphConfig.Content or "Content"
+        ParagraphConfig.Icon = ParagraphConfig.Icon or "rbxassetid://18289959127" -- Icon mặc định
+        ParagraphConfig.Center = ParagraphConfig.Center or false -- Mặc định không căn giữa
+        local ParagraphFunc = {Type = "Paragraph"}
 
-    local Paragraph = Instance.new("Frame")
-    local UICorner = Instance.new("UICorner")
-    local ParagraphTitle = Instance.new("TextLabel")
-    local ParagraphContent = Instance.new("TextLabel")
-    local UIStroke = Instance.new("UIStroke")
-    local ParagraphIcon = Instance.new("ImageLabel")
-    local UICornerIcon = Instance.new("UICorner")
+        local Paragraph = Instance.new("Frame")
+        local UICorner = Instance.new("UICorner")
+        local ParagraphTitle = Instance.new("TextLabel")
+        local ParagraphContent = Instance.new("TextLabel")
+        local UIStroke = Instance.new("UIStroke")
+        local ParagraphIcon = Instance.new("ImageLabel")
+        local UICornerIcon = Instance.new("UICorner")
 
-    Paragraph.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
-    Paragraph.BackgroundTransparency = 0.3
-    Paragraph.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    Paragraph.BorderSizePixel = 0
-    Paragraph.LayoutOrder = CountItem
-    Paragraph.Size = UDim2.new(1, -8, 0, 70) 
-    Paragraph.Name = "Paragraph"
-    Paragraph.Parent = ScrollLayers
+        Paragraph.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+        Paragraph.BackgroundTransparency = 0.3
+        Paragraph.BorderColor3 = Color3.fromRGB(0, 0, 0)
+        Paragraph.BorderSizePixel = 0
+        Paragraph.LayoutOrder = CountItem
+        Paragraph.Size = UDim2.new(1, -8, 0, 70) -- Kích thước mặc định
+        Paragraph.Name = ParagraphName
+        Paragraph.Parent = ScrollLayers
 
-    UICorner.CornerRadius = UDim.new(0, 3)
-    UICorner.Parent = Paragraph
+        UICorner.CornerRadius = UDim.new(0, 3)
+        UICorner.Parent = Paragraph
 
-    ParagraphTitle.Font = Enum.Font.GothamBold
-    ParagraphTitle.Text = ParagraphConfig.Title
-    ParagraphTitle.TextColor3 = Color3.fromRGB(255, 255, 255)
-    ParagraphTitle.TextSize = 12
-    ParagraphTitle.TextXAlignment = Enum.TextXAlignment.Left
-    ParagraphTitle.TextYAlignment = Enum.TextYAlignment.Top
-    ParagraphTitle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    ParagraphTitle.BackgroundTransparency = 0.999
-    ParagraphTitle.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    ParagraphTitle.BorderSizePixel = 0
-    ParagraphTitle.Position = UDim2.new(0, 5, 0, 5)
-    ParagraphTitle.Size = UDim2.new(1, -60, 0, 12)
-    ParagraphTitle.Name = "ParagraphTitle"
-    ParagraphTitle.Parent = Paragraph
+        ParagraphTitle.Font = Enum.Font.GothamBold
+        ParagraphTitle.Text = ParagraphConfig.Title
+        ParagraphTitle.TextColor3 = Color3.fromRGB(255, 255, 255)
+        ParagraphTitle.TextSize = 12
+        ParagraphTitle.TextXAlignment = ParagraphConfig.Center and Enum.TextXAlignment.Center or Enum.TextXAlignment.Left
+        ParagraphTitle.TextYAlignment = Enum.TextYAlignment.Top
+        ParagraphTitle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+        ParagraphTitle.BackgroundTransparency = 0.999
+        ParagraphTitle.BorderColor3 = Color3.fromRGB(0, 0, 0)
+        ParagraphTitle.BorderSizePixel = 0
+        ParagraphTitle.Position = UDim2.new(0, ParagraphConfig.Center and 0 or 5, 0, 5)
+        ParagraphTitle.Size = UDim2.new(1, ParagraphConfig.Center and 0 or -60, 0, 12)
+        ParagraphTitle.Name = "ParagraphTitle"
+        ParagraphTitle.Parent = Paragraph
 
-    ParagraphContent.Font = Enum.Font.Gotham
-    ParagraphContent.Text = ParagraphConfig.Content
-    ParagraphContent.TextColor3 = Color3.fromRGB(80, 80, 80)
-    ParagraphContent.TextSize = 12
-    ParagraphContent.TextXAlignment = Enum.TextXAlignment.Left
-    ParagraphContent.TextYAlignment = Enum.TextYAlignment.Top
-    ParagraphContent.TextWrapped = true
-    ParagraphContent.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    ParagraphContent.BackgroundTransparency = 0.999
-    ParagraphContent.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    ParagraphContent.BorderSizePixel = 0
-    ParagraphContent.Position = UDim2.new(0, 5, 0, 20)
-    ParagraphContent.Size = UDim2.new(1, -60, 0, 45)
-    ParagraphContent.Name = "ParagraphContent"
-    ParagraphContent.Parent = Paragraph
+        ParagraphContent.Font = Enum.Font.Gotham
+        ParagraphContent.Text = ParagraphConfig.Content
+        ParagraphContent.TextColor3 = Color3.fromRGB(80, 80, 80)
+        ParagraphContent.TextSize = 12
+        ParagraphContent.TextXAlignment = ParagraphConfig.Center and Enum.TextXAlignment.Center or Enum.TextXAlignment.Left
+        ParagraphContent.TextYAlignment = Enum.TextYAlignment.Top
+        ParagraphContent.TextWrapped = true
+        ParagraphContent.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+        ParagraphContent.BackgroundTransparency = 0.999
+        ParagraphContent.BorderColor3 = Color3.fromRGB(0, 0, 0)
+        ParagraphContent.BorderSizePixel = 0
+        ParagraphContent.Position = UDim2.new(0, ParagraphConfig.Center and 0 or 5, 0, 20)
+        ParagraphContent.Size = UDim2.new(1, ParagraphConfig.Center and 0 or -60, 0, 45)
+        ParagraphContent.Name = "ParagraphContent"
+        ParagraphContent.Parent = Paragraph
 
-    UIStroke.Color = Color3.fromRGB(50, 50, 50)
-    UIStroke.Thickness = 0.3
-    UIStroke.Parent = ParagraphContent
+        UIStroke.Color = Color3.fromRGB(50, 50, 50)
+        UIStroke.Thickness = 0.3
+        UIStroke.Parent = ParagraphContent
 
-    ParagraphIcon.Image = ParagraphConfig.Icon
-    ParagraphIcon.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    ParagraphIcon.BackgroundTransparency = 0.999
-    ParagraphIcon.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    ParagraphIcon.BorderSizePixel = 0
-    ParagraphIcon.AnchorPoint = Vector2.new(1, 0.5)
-    ParagraphIcon.Position = UDim2.new(1, -5, 0.5, 0)
-    ParagraphIcon.Size = UDim2.new(0, 45, 0, 45)
-    ParagraphIcon.Name = "ParagraphIcon"
-    ParagraphIcon.Parent = Paragraph
+        ParagraphIcon.Image = ParagraphConfig.Icon
+        ParagraphIcon.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+        ParagraphIcon.BackgroundTransparency = 0.999
+        ParagraphIcon.BorderColor3 = Color3.fromRGB(0, 0, 0)
+        ParagraphIcon.BorderSizePixel = 0
+        ParagraphIcon.AnchorPoint = Vector2.new(ParagraphConfig.Center and 0.5 or 1, 0.5)
+        ParagraphIcon.Position = UDim2.new(ParagraphConfig.Center and 0.5 or 1, ParagraphConfig.Center and 0 or -5, 0.5, 0)
+        ParagraphIcon.Size = UDim2.new(0, 45, 0, 45)
+        ParagraphIcon.Name = "ParagraphIcon"
+        ParagraphIcon.Parent = Paragraph
 
-    UICornerIcon.CornerRadius = UDim.new(0, 5)
-    UICornerIcon.Parent = ParagraphIcon
-    
-    ParagraphContent:GetPropertyChangedSignal("TextBounds"):Connect(function()
-        local textBounds = ParagraphContent.TextBounds
-        local lines = math.ceil(textBounds.X / ParagraphContent.AbsoluteSize.X)
-        ParagraphContent.Size = UDim2.new(1, -60, 0, 12 + (12 * lines))
-        Paragraph.Size = UDim2.new(1, -8, 0, math.max(70, 20 + (12 * lines) + 10))
-        UpSize2()
-    end)
+        UICornerIcon.CornerRadius = UDim.new(0, 5)
+        UICornerIcon.Parent = ParagraphIcon
 
-    function ParagraphFunc:Set(config)
-        config = config or {}
-        ParagraphTitle.Text = tostring(config.Title or ParagraphConfig.Title)
-        ParagraphContent.Text = tostring(config.Content or ParagraphConfig.Content)
-        ParagraphIcon.Image = config.Icon or ParagraphConfig.Icon
+        -- Điều chỉnh kích thước Paragraph dựa trên nội dung
+        ParagraphContent:GetPropertyChangedSignal("TextBounds"):Connect(function()
+            local textBounds = ParagraphContent.TextBounds
+            local lines = math.ceil(textBounds.X / ParagraphContent.AbsoluteSize.X)
+            ParagraphContent.Size = UDim2.new(1, ParagraphConfig.Center and 0 or -60, 0, 12 + (12 * lines))
+            Paragraph.Size = UDim2.new(1, -8, 0, math.max(70, 20 + (12 * lines) + 10))
+            UpSize2()
+        end)
+
+        -- Hàm Paragraph:Set
+        function ParagraphFunc:Set(config)
+            config = config or {}
+            ParagraphTitle.Text = tostring(config.Title or ParagraphConfig.Title)
+            ParagraphContent.Text = tostring(config.Content or ParagraphConfig.Content)
+            ParagraphIcon.Image = config.Icon or ParagraphConfig.Icon
+            local newCenter = config.Center ~= nil and config.Center or ParagraphConfig.Center
+            ParagraphTitle.TextXAlignment = newCenter and Enum.TextXAlignment.Center or Enum.TextXAlignment.Left
+            ParagraphContent.TextXAlignment = newCenter and Enum.TextXAlignment.Center or Enum.TextXAlignment.Left
+            ParagraphTitle.Position = UDim2.new(0, newCenter and 0 or 5, 0, 5)
+            ParagraphContent.Position = UDim2.new(0, newCenter and 0 or 5, 0, 20)
+            ParagraphTitle.Size = UDim2.new(1, newCenter and 0 or -60, 0, 12)
+            ParagraphContent.Size = UDim2.new(1, newCenter and 0 or -60, 0, 45)
+            ParagraphIcon.AnchorPoint = Vector2.new(newCenter and 0.5 or 1, 0.5)
+            ParagraphIcon.Position = UDim2.new(newCenter and 0.5 or 1, newCenter and 0 or -5, 0.5, 0)
+            -- Cập nhật lại kích thước dựa trên nội dung mới
+            local textBounds = ParagraphContent.TextBounds
+            local lines = math.ceil(textBounds.X / ParagraphContent.AbsoluteSize.X)
+            ParagraphContent.Size = UDim2.new(1, newCenter and 0 or -60, 0, 12 + (12 * lines))
+            Paragraph.Size = UDim2.new(1, -8, 0, math.max(70, 20 + (12 * lines) + 10))
+            UpSize2()
+        end
+
+        EnterMouseGUI(Paragraph)
+
+        Items[ParagraphName] = ParagraphFunc
+        CountItem = CountItem + 1
+        return ParagraphFunc
     end
-
-    EnterMouseGUI(Paragraph)
-
-    Items[ParagraphName] = ParagraphFunc
-    CountItem = CountItem + 1
-    return ParagraphFunc
-end
 function Items:MakeDropdown(DropdownName, DropdownConfig)
     local DropdownConfig = DropdownConfig or {}
     DropdownConfig.Title = DropdownConfig.Title or "Title"
